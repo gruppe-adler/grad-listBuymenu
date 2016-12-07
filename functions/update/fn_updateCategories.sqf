@@ -1,3 +1,7 @@
+/*  Updates category combolistbox
+*
+*/
+
 #include "..\..\dialog\defines.hpp"
 params [["_baseConfigName", ""]];
 disableSerialization;

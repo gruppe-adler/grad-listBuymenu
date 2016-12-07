@@ -1,3 +1,7 @@
+/*  Updates (enables/disables) the buy button
+*
+*/
+
 #include "..\..\dialog\defines.hpp"
 params ["_baseConfigName", "_categoryConfigName", "_itemConfigName", "_price"];
 disableSerialization;

@@ -1,3 +1,8 @@
+/*  Adds item to player/cargospace
+*
+*   remote executed by server
+*/
+
 params ["_buyer","_price","_code","_baseConfigName", "_categoryConfigName", "_itemConfigName"];
 if (player != _buyer) exitWith {};
 

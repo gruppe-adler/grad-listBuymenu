@@ -1,3 +1,8 @@
+/*  Processes buy request sent by client
+*
+*   remote executed by client
+*/
+
 params ["_baseConfigName", "_categoryConfigName", "_itemConfigName", "_buyer", "_price", "_vehiclespawn"];
 
 //check if in stock

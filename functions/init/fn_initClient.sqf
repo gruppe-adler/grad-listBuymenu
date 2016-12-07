@@ -1,3 +1,8 @@
+/*  Initializes some stuff on client.
+*
+*   runs automatically during postInit
+*/
+
 if (!hasInterface) exitWith {};
 
 //PVEH on item stock update
@@ -20,4 +25,4 @@ if (!isServer) then {
 
 
 //set module root
-missionNamespace setVariable ["grad_lbm_moduleRoot", [] call grad_lbm_fnc_getModuleRoot]; 
+missionNamespace setVariable ["grad_lbm_moduleRoot", [] call grad_lbm_fnc_getModuleRoot];

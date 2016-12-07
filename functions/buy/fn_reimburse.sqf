@@ -1,3 +1,7 @@
+/*  Reimburses player in case something went wrong
+*
+*/
+
 params ["_target", "_price", "_message"];
 if (!hasInterface) exitWith {};
 if (player != _target) exitWith {};

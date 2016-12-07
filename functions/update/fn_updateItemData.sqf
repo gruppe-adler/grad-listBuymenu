@@ -1,3 +1,7 @@
+/*  Updates item picture, stock, description in buy menu
+*
+*/
+
 #include "..\..\dialog\defines.hpp"
 disableSerialization;
 

@@ -1,3 +1,7 @@
+/*  Updates itemlist based on chosen category
+*
+*/
+
 #include "..\..\dialog\defines.hpp"
 params ["_categoryCtrl", "_selIndex"];
 disableSerialization;

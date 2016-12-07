@@ -1,3 +1,7 @@
+/*  Spawns vehicle
+*
+*/
+
 params ["_buyer","_price","_code","_baseConfigName","_categoryConfigName","_itemConfigName","_vehiclespawn"];
 
 _spawnEmpty = ([(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "spawnEmpty"), "number", 0] call CBA_fnc_getConfigEntry) == 1;

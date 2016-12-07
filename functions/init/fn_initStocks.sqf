@@ -1,3 +1,7 @@
+/*  Reads item stocks from config publishes them in a hash
+*
+*/
+
 if (!isServer) exitWith {};
 
 GRAD_LBM_ITEMSTOCKS = [] call CBA_fnc_hashCreate;

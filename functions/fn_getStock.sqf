@@ -1,3 +1,7 @@
+/*  Gets stock of an item from public hash
+*
+*/
+
 params ["_baseConfigName", "_categoryConfigName", "_itemConfigName"];
 _hashKey = format ["%1_%2_%3", _baseConfigName, _categoryConfigName, _itemConfigName];
 

@@ -1,3 +1,7 @@
+/*  Updates funds text (top right) in buy menu
+*
+*/
+
 #include "..\..\dialog\defines.hpp"
 disableSerialization;
 

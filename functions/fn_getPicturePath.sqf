@@ -1,3 +1,7 @@
+/*  Finds picture based on classname
+*
+*/
+
 params ["_configName"];
 private ["_picturePath"];
 

@@ -1,3 +1,8 @@
+/*  Sends buy request to server
+*
+*   executed on click of buy button in buy menu
+*/
+
 #include "..\..\dialog\defines.hpp"
 disableSerialization;
 

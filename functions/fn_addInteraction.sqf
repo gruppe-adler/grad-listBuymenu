@@ -1,3 +1,7 @@
+/*  Adds ACE-interaction to open buy menu to an object
+*
+*/
+
 params ["_object", "_baseConfigName", ["_cargospace", objNull], ["_vehiclespawn", objNull], ["_shopName", ""], ["_actionDescription", "Buy Gear"], ["_condition", {true}]];
 
 _actionName = format ["grad_lbm_interaction_%1_%2", str _object, _baseConfigName];
