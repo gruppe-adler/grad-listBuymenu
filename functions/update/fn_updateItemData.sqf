@@ -18,8 +18,13 @@ _inStockText = if (_stock > 0) then {format ["IN STOCK: %1<br/><br/>", _stock]} 
 _descCtrl ctrlSetStructuredText parseText (_inStockText + _description);
 
 //set picture
-_picturePath = [_itemConfigName, _picturePath] call grad_lbm_fnc_getPicturePath;
-if (_picturePath != "") then {_pictureCtrl ctrlSetText _picturePath};
+if (_picturePath == "") then {
+    _picturePath = [_itemConfigName] call grad_lbm_fnc_getPicturePath;
+};
+if (_picturePath == "") then {
+    _picturePath = (missionNamespace getVariable ["grad_lbm_moduleRoot", [] call grad_lbm_fnc_getModuleRoot]) + "\data\questionmark.paa";
+};
+_pictureCtrl ctrlSetText _picturePath;
 
 //disable buy button if out of stock
 [_baseConfigName, _categoryConfigName, _itemConfigName, _price] call grad_lbm_fnc_updateBuyButton;

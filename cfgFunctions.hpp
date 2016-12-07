@@ -6,6 +6,7 @@ class GRAD_lbm {
     class common {
         file = MODULES_DIRECTORY\grad-listBuymenu\functions;
         class addInteraction {};
+        class getModuleRoot {};
         class getPicturePath {};
         class getStock {};
         class loadBuymenu {};
@@ -14,8 +15,12 @@ class GRAD_lbm {
     class buy {
         file = MODULES_DIRECTORY\grad-listBuymenu\functions\buy;
         class buyClient {};
+        class buyItem {};
         class buyServer {};
+        class buyUnit {};
+        class buyVehicle {};
         class buyWeapon {};
+        class buyWearable {};
         class reimburse {};
     };
 

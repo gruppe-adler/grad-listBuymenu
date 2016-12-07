@@ -1,4 +1,4 @@
-params ["_buyer","_baseConfigName", "_categoryConfigName", "_itemConfigName"];
+params ["_buyer","_price","_code","_baseConfigName", "_categoryConfigName", "_itemConfigName"];
 if (player != _buyer) exitWith {};
 
 _cargospace = missionNamespace getVariable ["grad_lbm_currentCargospace", objNull];
@@ -73,3 +73,5 @@ switch (_type) do {
         systemChat format ["ERROR: Classname %1 not found in CfgWeapons.", _itemConfigName];
     };
 };
+
+[_buyer,_itemConfigName] call _code;

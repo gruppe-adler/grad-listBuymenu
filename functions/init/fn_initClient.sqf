@@ -1,10 +1,8 @@
 if (!hasInterface) exitWith {};
 
-//player is client
+//PVEH on item stock update
 if (!isServer) then {
     "GRAD_LBM_ITEMSTOCKS" addPublicVariableEventHandler {[] call grad_lbm_fnc_updateItemData};
-
-//player is host
 } else {
     grad_lbm_fnc_localHostPubVar = {
         params ["_oldStocks"];
@@ -19,3 +17,7 @@ if (!isServer) then {
     _oldStocks = str (missionNamespace getVariable ["GRAD_LBM_ITEMSTOCKS", []]);
     [_oldStocks] call grad_lbm_fnc_localHostPubVar;
 };
+
+
+//set module root
+missionNamespace setVariable ["grad_lbm_moduleRoot", [] call grad_lbm_fnc_getModuleRoot]; 

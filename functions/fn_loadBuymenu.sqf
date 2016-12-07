@@ -1,7 +1,13 @@
 #include "..\dialog\defines.hpp"
-params [["_title", ""], ["_cargospace", objNull], ["_baseConfigName", ""]];
+params [["_caller", player],["_cargospace", objNull], ["_vehiclespawn", objNull],["_baseConfigName", ""],["_title", ""]];
+
+if (isNull _cargospace) then {_cargospace = _caller};
+if (_vehiclespawn isEqualType objNull) then {
+    if (isNull _vehiclespawn) then {_vehiclespawn = _caller};
+};
 
 missionNamespace setVariable ["grad_lbm_currentCargospace", _cargospace];
+missionNamespace setVariable ["grad_lbm_currentVehiclespawn", _vehiclespawn];
 
 //create dialog
 disableSerialization;
