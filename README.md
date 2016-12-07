@@ -69,6 +69,7 @@ Buyables are defined in your `description.ext`.
 | `stock`       | Sets total amount of this item that can be bought.                                                                                      |
 | `amount`      | Sets amount of this item that buyer gets per click of buy button (optional). Default is 1. Only available for type `"Items"` and `"Units"`. |
 | `code`        | Sets code that is executed when item is bought (optional). (see below)                                                                  |
+| `picture`     | Path to custom picture for this item (optional). By default the UI picture, that most objects in Arma have, is used.                      |
 | `kindOf`      | Overwrites category type for this item (optional).                                                                                        |
 | `muzzleItem`      | Sets muzzle item (i.e. suppressor) that is included with this item (optional). Only available for type `"Weapons"`                         |
 | `opticsItem`      | Sets optics item (i.e. red dot) that is included with this item (optional). Only available for type `"Weapons"`                            |
@@ -164,7 +165,8 @@ class CfgGradBuymenu {
                 description = "This thing is quick";
                 price = 4000;
                 stock = 10;
-                code = "(_this select 2) setFuel 0.5";  //this car will spawn with half a tank of gas
+                picture = "myPictureFolder\sportscar.paa";  //this item uses a custom picture
+                code = "(_this select 2) setFuel 0.5";  //this car will spawn with half a tank of gas                
                 spawnEmpty = true;
             };
         };
