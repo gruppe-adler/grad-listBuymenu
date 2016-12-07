@@ -60,15 +60,6 @@ Buyables are defined in your `description.ext`.
 | `kindOf`      | Sets type of category. (see below)                                               |
 | `displayName` | Sets display name of category (optional). Category classname is used by default. |
 
-#### Category Types
-Because different types of items require different spawn routines, the type of a category needs to be defined. Available types are:
-* `"Weapons"` (for any type of weapon - primary, handgun or launcher)
-* `"Items"` (for any inventory item including magazines, grenades, etc.)
-* `"Apparel"` (for uniforms, vests, backpacks, helmets)
-* `"Vehicles"` (for cars, trucks, helicopters, tanks, etc.)
-* `"Units"` (for AI units)
-* `"Other"` (for anything else - nothing will spawn, only `code` will be called)
-
 ### Item Attributes
 | Option      | Explanation                                                                                                                             |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -85,7 +76,16 @@ Because different types of items require different spawn routines, the type of a
 | `underbarrelItem` | Sets underbarrel item (i.e. bipod) that is included with this item (optional). Only available for type `"Weapons"`                         |
 | `spawnEmpty`      | Sets if a vehicle will spawn with empty inventory (optional). Default is `false`. Only available for type `"Vehicles"`                    |
 
-#### Code
+### Category Types
+Because different types of items require different spawn routines, the type of a category needs to be defined. Available types are:
+* `"Weapons"` (for any type of weapon - primary, handgun or launcher)
+* `"Items"` (for any inventory item including magazines, grenades, etc.)
+* `"Apparel"` (for uniforms, vests, backpacks, helmets)
+* `"Vehicles"` (for cars, trucks, helicopters, tanks, etc.)
+* `"Units"` (for AI units)
+* `"Other"` (for anything else - nothing will spawn, only `code` will be called)
+
+### Code
 The script saved in `code` is called when an item is bought. Locality and passed parameters are dependent on category type.
 
 Called on server when type is:
