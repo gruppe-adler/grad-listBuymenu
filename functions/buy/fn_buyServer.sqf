@@ -43,6 +43,10 @@ switch (_type) do {
         [_buyer,_price,_code,_baseConfigName,_categoryConfigName,_itemConfigName,_vehiclespawn] call grad_lbm_fnc_buyUnit;
     };
 
+    case ("OTHER"): {
+        [_buyer,_itemConfigName] call _code;
+    };
+
     default {
         [_buyer, _price, "Unknown item type. You got your money back."] remoteExec ["grad_lbm_fnc_reimburse",0,false];
     };

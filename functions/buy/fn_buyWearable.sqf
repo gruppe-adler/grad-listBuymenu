@@ -35,8 +35,6 @@ _type = switch (true) do {
     default  {"UNKNOWN"};
 };
 
-systemChat _type;
-
 //switch type
 switch (_type) do {
     case ("UNIFORM"): {
