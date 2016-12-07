@@ -5,16 +5,18 @@
 params ["_buyer","_price","_code","_baseConfigName","_categoryConfigName","_itemConfigName","_vehiclespawn"];
 
 _amount = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "amount"), "number", 1] call CBA_fnc_getConfigEntry;
+_minDistance = 0;
 
 //vehiclespawn is object
 if (_vehiclespawn isEqualType objNull) then {
+    _minDistance = 5;
     _vehiclespawn = getPos _vehiclespawn;
 };
 
 //find spawn position
 _spawnPosition = [];
 for "_i" from 1 to 20 do {
-    _spawnPosition = _vehiclespawn findEmptyPosition [0, 10 + 5*_i, _itemConfigName];
+    _spawnPosition = _vehiclespawn findEmptyPosition [_minDistance, 15 + 5*_i, _itemConfigName];
     if (str _spawnPosition != "[]") exitWith {};
 };
 if (str _spawnPosition == "[]") exitWith {[_buyer, _price, "No unit spawn position found. You got your money back."] remoteExec ["grad_lbm_fnc_reimburse",0,false]};
