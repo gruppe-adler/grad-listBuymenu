@@ -178,7 +178,7 @@ class CfgGradBuymenu {
                 description = "10 simple bandages in sterile packaging.";
                 amount = 10;
                 price = 100;
-                stock = 40;     //note that a total of 400 bandages can be bought
+                stock = 40;     //note that a total of 400 bandages can be bought (in sets of 10)
             };
         };
     };
