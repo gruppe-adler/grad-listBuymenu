@@ -43,7 +43,7 @@ class grad_lbm_RscStructuredTextLeft {
 
 class grad_lbm_RscPicture {
 	shadow = 0;
-	type = 0;
+	type = CT_STATIC;
 	style = 48 + 2048;
 	sizeEx = 0.023;
 	font = "PuristaMedium";

@@ -14,9 +14,12 @@ switch (true) do {
     };
 
     case (isClass (configFile >> "CfgVehicles" >> _configName)): {
-        _picturePath = getText (configFile >> "CfgVehicles" >> _configName >> "picture");
+        _picturePath = getText (configfile >> "CfgVehicles" >> _configName >> "editorPreview");
         if (_picturePath == "") then {
-            _picturePath = getText (configFile >> "CfgVehicles" >> _configName >> "uipicture");
+            _picturePath = getText (configFile >> "CfgVehicles" >> _configName >> "icon");
+            if (_picturePath == "") then {
+                _picturePath = getText (configFile >> "CfgVehicles" >> _configName >> "picture");
+            };
         };
     };
 
