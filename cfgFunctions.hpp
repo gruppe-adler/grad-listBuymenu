@@ -9,7 +9,9 @@ class GRAD_lbm {
         class getModuleRoot {};
         class getPicturePath {};
         class getStock {};
+        class isVehicle {};
         class loadBuymenu {};
+        class rotateModel {};
     };
 
     class buy {
@@ -32,6 +34,9 @@ class GRAD_lbm {
         class initStocks {
             postInit = 1;
         };
+        class initVehicles {
+            postInit = 1;
+        };
     };
 
     class update {
@@ -41,5 +46,6 @@ class GRAD_lbm {
         class updateFunds {};
         class updateItemData {};
         class updateList {};
+        class updatePicture {};
     };
 };

@@ -14,11 +14,12 @@ switch (true) do {
     };
 
     case (isClass (configFile >> "CfgVehicles" >> _configName)): {
-        _picturePath = getText (configfile >> "CfgVehicles" >> _configName >> "editorPreview");
-        if (_picturePath == "") then {
-            _picturePath = getText (configFile >> "CfgVehicles" >> _configName >> "icon");
+        if (_configName isKindOf "Man" || _configName isKindOf "StaticWeapon") then {
+            _picturePath = getText (configfile >> "CfgVehicles" >> _configName >> "editorPreview");
+        } else {
+            _picturePath = getText (configFile >> "CfgVehicles" >> _configName >> "picture");
             if (_picturePath == "") then {
-                _picturePath = getText (configFile >> "CfgVehicles" >> _configName >> "picture");
+                _picturePath = getText (configFile >> "CfgVehicles" >> _configName >> "icon");
             };
         };
     };

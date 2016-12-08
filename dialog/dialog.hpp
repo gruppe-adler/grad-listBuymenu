@@ -101,7 +101,7 @@ class grad_lbm {
             w = grad_lbm_Column_W;
             h = grad_lbm_Itemlist_H;
 
-            onLBSelChanged = "_this call grad_lbm_fnc_updateItemData";
+            onLBSelChanged = "_this call grad_lbm_fnc_updateItemData; _this call grad_lbm_fnc_updatePicture";
         };
 
         class BuyButton: grad_lbm_RscButton {
@@ -113,6 +113,31 @@ class grad_lbm {
             y = grad_lbm_BG_Y + grad_lbm_BG_H + grad_lbm_ItemSpace_Y;
             w = grad_lbm_Button_W;
             h = grad_lbm_Item_H;
+        };
+    };
+
+    class Objects {
+        class previewModel {
+            idc = grad_lbm_3DMODEL;
+            type = 82;
+            model = "\A3\Structures_F\Items\Food\Can_V3_F.p3d";
+            scale = 0.05;
+
+            direction[] = {-0.40, 0.35, 0.65};
+			up[] = {0, 0.65, -0.35};
+
+            x = grad_lbm_Column2_X + 0.5*grad_lbm_Column_W;
+            y = grad_lbm_BG_Y + grad_lbm_Padding_Y + 0.5*grad_lbm_Picture_H;
+            z = 0.2;
+
+            xBack = grad_lbm_Column2_X + 0.55*grad_lbm_Column_W;
+            yBack = grad_lbm_BG_Y + grad_lbm_Padding_Y + 0.5*grad_lbm_Picture_H;
+            zBack = 1.2;
+
+            inBack = 1;
+            enableZoom = 0;
+            zoomDuration = 0.001;
+            onLoad = "ctrlShow [_this, false]; _this call grad_lbm_fnc_rotateModel;";
         };
     };
 };
