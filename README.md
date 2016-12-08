@@ -54,29 +54,39 @@ Buyables are defined in your `description.ext`.
     * buyables set 2
         * ...
 
+### Module Attributes
+| Option      | Explanation                                                                      |
+|-------------|----------------------------------------------------------------------------------|
+| `vehicleMarkers` | Bool - Sets if a 3D marker will be displayed on bought vehicles (optional). On by default     |
+
+### Buyables Set Attributes
+| Option      | Explanation                                                                      |
+|-------------|----------------------------------------------------------------------------------|
+| `vehicleMarkers` | Bool - Overwrites module setting for this set (optional).                           |
+
 ### Category Attributes
 | Option      | Explanation                                                                      |
 |-------------|----------------------------------------------------------------------------------|
-| `kindOf`      | Sets type of category. (see below)                                               |
-| `displayName` | Sets display name of category (optional). Category classname is used by default. |
+| `kindOf`      | String - Sets type of category. (see below)                                               |
+| `displayName` | String - Sets display name of category (optional). Category classname is used by default. |
 
 ### Item Attributes
 | Option      | Explanation                                                                                                                             |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| `displayName` | Sets display name of item. (*not* optional here)                                                                                        |
-| `description` | Sets description of item. Supports structured text.                                                                                     |
-| `price`       | Sets price of (one set of) this item.                                                                                                   |
-| `stock`       | Sets total amount of this item that can be bought.                                                                                      |
-| `amount`      | Sets amount of this item that buyer gets per click of buy button (optional). Default is 1. Only available for type `"Items"` and `"Units"`. |
-| `code`        | Sets code that is executed when item is bought (optional). (see below)                                                                  |
-| `picture`     | Path to custom picture for this item (optional). By default the UI picture, that most objects in Arma have, is used.                      |
-| `kindOf`      | Overwrites category type for this item (optional).                                                                                        |
-| `muzzleItem`      | Sets muzzle item (i.e. suppressor) that is included with this item (optional). Only available for type `"Weapons"`                         |
-| `opticsItem`      | Sets optics item (i.e. red dot) that is included with this item (optional). Only available for type `"Weapons"`                            |
-| `pointerItem`     | Sets pointer item (i.e. gunlight) that is included with this item (optional). Only available for type `"Weapons"`                          |
-| `underbarrelItem` | Sets underbarrel item (i.e. bipod) that is included with this item (optional). Only available for type `"Weapons"`                         |
-| `spawnEmpty`      | Sets if a vehicle will spawn with empty inventory (optional). Default is `false`. Only available for type `"Vehicles"`                    |
-| `previewScale`    | Sets scale factor for 3D object preview in case this item displays too small/big (optional). Only available for type `"Vehicles"`         |
+| `displayName` | String - Sets display name of item. (*not* optional here)                                                                                        |
+| `description` | String - Sets description of item. Supports structured text.                                                                                     |
+| `price`       | Number - Sets price of (one set of) this item.                                                                                                   |
+| `stock`       | Number - Sets total amount of this item that can be bought.                                                                                      |
+| `amount`      | Number - Sets amount of this item that buyer gets per click of buy button (optional). Default is 1. Only available for type `"Items"` and `"Units"`. |
+| `code`        | String - Sets code that is executed when item is bought (optional). (see below)                                                                  |
+| `picture`     | String - Path to custom picture for this item (optional). By default the UI picture, that most objects in Arma have, is used.                      |
+| `kindOf`      | String - Overwrites category type for this item (optional).                                                                                        |
+| `muzzleItem`      | String - Sets muzzle item (i.e. suppressor) that is included with this item (optional). Only available for type `"Weapons"`                         |
+| `opticsItem`      | String - Sets optics item (i.e. red dot) that is included with this item (optional). Only available for type `"Weapons"`                            |
+| `pointerItem`     | String - Sets pointer item (i.e. gunlight) that is included with this item (optional). Only available for type `"Weapons"`                          |
+| `underbarrelItem` | String - Sets underbarrel item (i.e. bipod) that is included with this item (optional). Only available for type `"Weapons"`                         |
+| `spawnEmpty`      | Bool - Sets if a vehicle will spawn with empty inventory (optional). Default is `false`. Only available for type `"Vehicles"`                    |
+| `previewScale`    | Number - Sets scale factor for 3D object preview in case this item displays too small/big (optional). Only available for type `"Vehicles"`         |
 
 ### Category Types
 Because different types of items require different spawn routines, the type of a category needs to be defined. Available types are:

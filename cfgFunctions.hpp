@@ -4,7 +4,7 @@
 
 class GRAD_lbm {
     class common {
-        file = MODULES_DIRECTORY\grad-listBuymenu\functions;
+        file = MODULES_DIRECTORY\grad-listBuymenu\functions\common;
         class addInteraction {};
         class getModuleRoot {};
         class getPicturePath {};
@@ -24,6 +24,7 @@ class GRAD_lbm {
         class buyWeapon {};
         class buyWearable {};
         class reimburse {};
+        class vehicleMarker {};
     };
 
     class init {

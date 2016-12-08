@@ -2,7 +2,7 @@
 *
 */
 
-#include "..\dialog\defines.hpp"
+#include "..\..\dialog\defines.hpp"
 params [["_caller", player],["_cargospace", objNull], ["_vehiclespawn", objNull],["_baseConfigName", ""],["_title", ""]];
 
 if (isNull _cargospace) then {_cargospace = _caller};

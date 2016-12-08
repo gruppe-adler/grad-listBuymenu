@@ -31,3 +31,18 @@ if (_spawnEmpty) then {
 };
 
 [_buyer,_itemConfigName,_vehicle,_spawnPosition] call _code;
+
+
+//vehicle marker
+_c1 = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> "vehicleMarkers"), "number", 2] call CBA_fnc_getConfigEntry;
+_c2 = [(missionConfigFile >> "CfgGradBuymenu" >> "vehicleMarkers"), "number", 1] call CBA_fnc_getConfigEntry;
+switch (true) do {
+    case (_c1 == 1): {
+        [_buyer, _vehicle, _baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_vehicleMarker", 0, false];
+    };
+    case (_c1 == 0): {false};
+    case (_c2 == 1): {
+        [_buyer, _vehicle, _baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_vehicleMarker", 0, false];
+    };
+    default {false};
+};
