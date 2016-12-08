@@ -11,6 +11,7 @@ class GRAD_lbm {
         class getStock {};
         class isVehicle {};
         class loadBuymenu {};
+        class rotateModel {};
     };
 
     class buy {

@@ -118,7 +118,6 @@ class grad_lbm {
 
     class Objects {
         class previewModel {
-            onObjectMoved = "systemChat str _this";
             idc = grad_lbm_3DMODEL;
             type = 82;
             model = "\A3\Structures_F\Items\Food\Can_V3_F.p3d";
@@ -127,6 +126,17 @@ class grad_lbm {
             direction[] = {-0.40, 0.35, 0.65};
 			up[] = {0, 0.65, -0.35};
 
+            x = grad_lbm_Column2_X + 0.5*grad_lbm_Column_W;
+            y = grad_lbm_BG_Y + grad_lbm_Padding_Y + 0.5*grad_lbm_Picture_H;
+            z = 0.2;
+
+            xBack = grad_lbm_Column2_X + 0.55*grad_lbm_Column_W;
+            yBack = grad_lbm_BG_Y + grad_lbm_Padding_Y + 0.5*grad_lbm_Picture_H;
+            zBack = 1.2;
+
+            /*direction[] = {-0.40, 0.35, 0.65};
+			up[] = {0, 0.65, -0.35};*/
+
             /*position[] = {grad_lbm_Column2_X + 0.5*grad_lbm_Column_W,grad_lbm_BG_Y + grad_lbm_Padding_Y + 0.5*grad_lbm_Picture_H,0.25};
             positionBack[] = {0,3,0.25};*/
 
@@ -134,23 +144,14 @@ class grad_lbm {
             y = 0.5;
             z = 0.2;*/
 
-            x = grad_lbm_Column2_X + 0.5*grad_lbm_Column_W;
-            y = grad_lbm_BG_Y + grad_lbm_Padding_Y + 0.5*grad_lbm_Picture_H;
-            z = 0.2;
-
             /*xBack = 0.5;
             yBack = 0.5;
             zBack = 1.2;*/
 
-            xBack = grad_lbm_Column2_X + 0.55*grad_lbm_Column_W;
-            yBack = grad_lbm_BG_Y + grad_lbm_Padding_Y + 0.5*grad_lbm_Picture_H;
-            zBack = 1.2;
-
-
             inBack = 1;
-            enableZoom = 1;
+            enableZoom = 0;
             zoomDuration = 0.001;
-            onLoad = "ctrlShow [_this, false];";
+            onLoad = "ctrlShow [_this, false]; _this call grad_lbm_fnc_rotateModel";
         };
     };
 };

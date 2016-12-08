@@ -30,6 +30,10 @@ _baseConfigs = "true" configClasses (missionConfigFile >> "CfgGradBuymenu");
     _dimensions = _vehicle call BIS_fnc_boundingBoxDimensions;
     _dimensions params ["_h","_l","_w"];
     _size = sqrt(_h*_h + _l*_l + _w*_w);
+
+    //static weapons tend to be a little too small
+    if (_type isKindOf "StaticWeapon") then {_size = _size*1.2};
+
     [GRAD_LBM_VEHICLESIZES, _type, _size] call CBA_fnc_hashSet;
 } forEach _types;
 

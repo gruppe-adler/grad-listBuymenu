@@ -76,6 +76,7 @@ Buyables are defined in your `description.ext`.
 | `pointerItem`     | Sets pointer item (i.e. gunlight) that is included with this item (optional). Only available for type `"Weapons"`                          |
 | `underbarrelItem` | Sets underbarrel item (i.e. bipod) that is included with this item (optional). Only available for type `"Weapons"`                         |
 | `spawnEmpty`      | Sets if a vehicle will spawn with empty inventory (optional). Default is `false`. Only available for type `"Vehicles"`                    |
+| `previewScale`    | Sets scale factor for 3D object preview in case this item displays too small/big (optional). Only available for type `"Vehicles"`         |
 
 ### Category Types
 Because different types of items require different spawn routines, the type of a category needs to be defined. Available types are:

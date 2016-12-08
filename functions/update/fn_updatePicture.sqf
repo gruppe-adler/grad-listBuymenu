@@ -22,7 +22,8 @@ _isVehicle = [_itemConfigName] call grad_lbm_fnc_isVehicle;
 if (_isVehicle) then {
     _modelPath = getText (configfile >> "CfgVehicles" >> _itemConfigName >> "model");
     _modelSize = [GRAD_LBM_VEHICLESIZES, _itemConfigName] call CBA_fnc_hashGet;
-    _modelScale = 1/_modelSize * 0.45;
+    _modelFactor = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "previewScale"), "number", 1] call CBA_fnc_getConfigEntry;
+    _modelScale = 1/_modelSize * 0.5 * _modelFactor;
 
     _modelCtrl ctrlSetModel _modelPath;
     _modelCtrl ctrlSetModelScale _modelScale;
