@@ -10,7 +10,6 @@ _modelCtrl ctrlSetModelDirAndUp [[0,1,0.08],[0,0,1]];
     if (isNull _modelCtrl) exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
 
     (ctrlModelDirAndUp _modelCtrl) params ["_currentDir"];
-    /*if (count _currentDir < 3) then {[_handle] call CBA_fnc_removePerFrameHandler};*/
     _currentDir params ["_x", "_y","_z"];
 
     ([[_x,_y], 1] call BIS_fnc_rotateVector2D) params ["_newX","_newY"];

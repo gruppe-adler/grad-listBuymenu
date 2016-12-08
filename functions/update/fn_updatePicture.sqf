@@ -31,7 +31,7 @@ if (_isVehicle) then {
     _modelCtrl ctrlCommit 0;
     _pictureCtrl ctrlShow false;
     _modelCtrl ctrlShow true;
-
+    _modelCtrl ctrlEnable false;    
 
 //picture
 } else {
