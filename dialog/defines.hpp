@@ -4,6 +4,7 @@
 #define grad_lbm_MYFUNDS 2002
 #define grad_lbm_PICTURE 2003
 #define grad_lbm_DESCRIPTION 2004
+#define grad_lbm_3DMODEL 2005
 
 //CONTROLS =====================================================================
 #define grad_lbm_CATEGORY 3001
