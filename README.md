@@ -21,7 +21,6 @@ _for details about what npm is and how to use it, look it up on [npmjs.com](http
 3. Append the following lines of code to the `description.ext`:
 
 ```sqf
-#define MODULES_DIRECTORY node_modules
 #include "node_modules\grad-listBuymenu\grad_listBuymenu.hpp"
 
 class CfgFunctions {
@@ -203,8 +202,8 @@ class CfgGradBuymenu {
 So we have two sets of buyables. One called "AmericanStuff" and one "RussianStuff". To add the interaction to open the buymenu, we do this:
 ```sqf
 //interaction for Americans:
-[aHumvee,"AmericanStuff",aHumvee,aHelipad,"American Store", "Buy American Things",{side player == WEST}] call grad_lbm_fnc_addInteraction;
+[aHumvee,"AmericanStuff",aHumvee,aHelipad,"American Store","Buy American Things",{side player == WEST}] call grad_lbm_fnc_addInteraction;
 
 //interaction for Russians:
-[aRadioTruck,"RussianStuff",aBoxNearTheTruck,"Russian Store", "Buy Russian Things",{side player == EAST}] call grad_lbm_fnc_addInteraction;
+[aRadioTruck,"RussianStuff",aBoxNearTheTruck,[4582,1452,0],"Russian Store","Buy Russian Things",{side player == EAST}] call grad_lbm_fnc_addInteraction;
 ```
