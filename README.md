@@ -29,7 +29,7 @@ class CfgFunctions {
 ```
 
 ## Usage
-To add the ACE-Interaction to open the buymenu, use `grad_lbm_fnc_addInteraction`:
+To add the ACE-Interaction to open the buymenu, use `[object,buyables set,cargospace,vehiclespawn,shopname,action description,condition] call grad_lbm_fnc_addInteraction`:
 
 | Parameter                     | Explanation                                                                                             |
 |-------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -41,6 +41,13 @@ To add the ACE-Interaction to open the buymenu, use `grad_lbm_fnc_addInteraction
 | action description (optional) | String - Display name of this action. Default is "Buy Gear".                                            |
 | condition (optional)          | Code - Condition for the action to be displayed.                                                        |
 
+To set a unit's permission level use `[unit, permissionLevel] call grad_lbm_fnc_setPermissionLevel`.  
+This function has global effect. Unit will only be able to buy items of equal or lower permission level. If no permission level is set, unit has level 0.
+
+| Parameter       | Explanation                                      |
+|-----------------|--------------------------------------------------|
+| unit            | Object - The unit whose permission level to set. |
+| permissionLevel | Number - The permission level to set.            |
 
 ## Configuration
 Buyables are defined in your `description.ext`.
@@ -58,18 +65,21 @@ Buyables are defined in your `description.ext`.
 ### Module Attributes
 | Option      | Explanation                                                                      |
 |-------------|----------------------------------------------------------------------------------|
-| `vehicleMarkers` | Bool - Sets if a 3D marker will be displayed on bought vehicles (optional). On by default     |
+| `vehicleMarkers` | Bool - Sets if a 3D marker will be displayed on bought vehicles (optional). On by default.     |
+| `permissionLevel` | Number - Sets permission level needed to be able to buy anything (optional). Default is 0. |
 
 ### Buyables Set Attributes
 | Option      | Explanation                                                                      |
 |-------------|----------------------------------------------------------------------------------|
 | `vehicleMarkers` | Bool - Overwrites module setting for this set (optional).                           |
+| `permissionLevel` | Number - Sets permission level needed to be able to buy from this set. Overwrites module permission level (optional). |
 
 ### Category Attributes
 | Option      | Explanation                                                                      |
 |-------------|----------------------------------------------------------------------------------|
 | `kindOf`      | String - Sets type of category. (see below)                                               |
 | `displayName` | String - Sets display name of category (optional). Category classname is used by default. |
+| `permissionLevel` | Number - Sets permission level needed to be able to buy from this category. Overwrites buyables set permission level (optional). |
 
 ### Item Attributes
 | Option      | Explanation                                                                                                                             |
@@ -88,6 +98,7 @@ Buyables are defined in your `description.ext`.
 | `underbarrelItem` | String - Sets underbarrel item (i.e. bipod) that is included with this item (optional). Only available for type `"Weapons"`                         |
 | `spawnEmpty`      | Bool - Sets if a vehicle will spawn with empty inventory (optional). Default is `false`. Only available for type `"Vehicles"`                    |
 | `previewScale`    | Number - Sets scale factor for 3D object preview in case this item displays too small/big (optional). Only available for type `"Vehicles"`         |
+| `permissionLevel` | Number - Sets permission level needed to be able to buy this item. Overwrites category permission level (optional). |
 
 ### Category Types
 Because different types of items require different spawn routines, the type of a category needs to be defined. Available types are:

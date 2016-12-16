@@ -7,11 +7,13 @@ class GRAD_lbm {
         file = MODULES_DIRECTORY\grad-listBuymenu\functions\common;
         class addInteraction {};
         class getModuleRoot {};
+        class getPermissionLevel {};
         class getPicturePath {};
         class getStock {};
         class isVehicle {};
         class loadBuymenu {};
         class rotateModel {};
+        class setPermissionLevel {};
     };
 
     class buy {

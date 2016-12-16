@@ -10,23 +10,8 @@ _dialog = findDisplay grad_lbm_DIALOG;
 _buyCtrl = _dialog displayCtrl grad_lbm_BUYBUTTON;
 
 //no permission
-systemChat str _baseConfigName;
-
-_c1 = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> "needPermission"), "number", 0] call CBA_fnc_getConfigEntry;
-_c2 = [(missionConfigFile >> "CfgGradBuymenu" >> "needPermission"), "number", 0] call CBA_fnc_getConfigEntry;
-
-systemChat str _c1;
-systemChat str _c2;
-
-_needPermission = switch (true) do {
-    case (_c1 == 1): {true};
-    case (_c2 == 1): {true};
-    default {false};
-};
-
-systemChat str _needPermission;
-
-if (_needPermission && !(player getVariable ["grad_lbm_canBuy", false])) exitWith {
+_permissionLevel = [_baseConfigName,_categoryConfigName,_itemConfigName] call grad_lbm_fnc_getPermissionLevel;
+if (_permissionLevel > (player getVariable ["grad_lbm_permissionLevel",0])) exitWith {
     _buyCtrl ctrlEnable false;
     _buyCtrl ctrlSetText "NO PERMISSION";
 };
