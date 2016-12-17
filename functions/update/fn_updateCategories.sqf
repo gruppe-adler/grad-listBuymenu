@@ -13,15 +13,19 @@ _baseConfig = missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName;
 _allCategories = "true" configClasses _baseConfig;
 {
     _config = _x;
-    _configName = configName _config;
+    _condition = [(_config >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
 
-    _displayName = [(_config >> "displayName"), "text", ""] call CBA_fnc_getConfigEntry;
-    if (_displayName == "") then {_displayName = _configName};
+    if (call compile _condition) then {
+        _configName = configName _config;
 
-    _categoryCtrl lbAdd _displayName;
+        _displayName = [(_config >> "displayName"), "text", ""] call CBA_fnc_getConfigEntry;
+        if (_displayName == "") then {_displayName = _configName};
 
-    _data = str [_baseConfigName, _configName];
-    _categoryCtrl lbSetData [_forEachIndex, _data];
+        _categoryCtrl lbAdd _displayName;
+
+        _data = str [_baseConfigName, _configName];
+        _categoryCtrl lbSetData [_forEachIndex, _data];
+    };
 } forEach _allCategories;
 
 if (lbSize _categoryCtrl > 0) then {_categoryCtrl lbSetCurSel 0};

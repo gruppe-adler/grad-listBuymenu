@@ -15,18 +15,21 @@ _allCategories = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> 
 lbClear _listCtrl;
 {
     _config = _x;
+    _condition = [(_config >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
 
-    _itemConfigName = configName _config;
-    _displayName = [(_config >> "displayName"), "text", "UNDEFINED NAME"] call CBA_fnc_getConfigEntry;
-    _price = [(_config >> "price"), "number", 999999] call CBA_fnc_getConfigEntry;
-    _description = [(_config >> "description"), "text", ""] call CBA_fnc_getConfigEntry;
-    _code = compile ([(_config >> "code"), "text", ""] call CBA_fnc_getConfigEntry);
-    _picturePath = [(_config >> "picture"), "text", ""] call CBA_fnc_getConfigEntry;
+    if (call compile _condition) then {
+        _itemConfigName = configName _config;
+        _displayName = [(_config >> "displayName"), "text", "UNDEFINED NAME"] call CBA_fnc_getConfigEntry;
+        _price = [(_config >> "price"), "number", 999999] call CBA_fnc_getConfigEntry;
+        _description = [(_config >> "description"), "text", ""] call CBA_fnc_getConfigEntry;
+        _code = compile ([(_config >> "code"), "text", ""] call CBA_fnc_getConfigEntry);
+        _picturePath = [(_config >> "picture"), "text", ""] call CBA_fnc_getConfigEntry;
 
-    _listCtrl lbAdd format ["%1 Cr - %2",_price,_displayName];
+        _listCtrl lbAdd format ["%1 Cr - %2",_price,_displayName];
 
-    _data = str [_baseConfigName, _categoryConfigName, _itemConfigName, _displayName, _price, _description, _code, _picturePath];
-    _listCtrl lbSetData [_forEachIndex, _data];
+        _data = str [_baseConfigName, _categoryConfigName, _itemConfigName, _displayName, _price, _description, _code, _picturePath];
+        _listCtrl lbSetData [_forEachIndex, _data];
+    };
 } forEach _allCategories;
 
 if (lbSize _listCtrl > 0) then {_listCtrl lbSetCurSel 0};

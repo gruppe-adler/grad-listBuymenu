@@ -80,6 +80,7 @@ Buyables are defined in your `description.ext`.
 | `kindOf`      | String - Sets type of category. (see below)                                               |
 | `displayName` | String - Sets display name of category (optional). Category classname is used by default. |
 | `permissionLevel` | Number - Sets permission level needed to be able to buy from this category. Overwrites buyables set permission level (optional). |
+| `condition`   | String - Condition for this category to be displayed (optional).                          |
 
 ### Item Attributes
 | Option      | Explanation                                                                                                                             |
@@ -99,6 +100,7 @@ Buyables are defined in your `description.ext`.
 | `spawnEmpty`      | Bool - Sets if a vehicle will spawn with empty inventory (optional). Default is `false`. Only available for type `"Vehicles"`                    |
 | `previewScale`    | Number - Sets scale factor for 3D object preview in case this item displays too small/big (optional). Only available for type `"Vehicles"`         |
 | `permissionLevel` | Number - Sets permission level needed to be able to buy this item. Overwrites category permission level (optional). |
+| `condition`       | String - Condition for this item to be displayed (optional). Does *not* overwrite category condition. |
 
 ### Category Types
 Because different types of items require different spawn routines, the type of a category needs to be defined. Available types are:
