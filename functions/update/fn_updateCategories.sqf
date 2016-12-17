@@ -11,6 +11,7 @@ _categoryCtrl = _dialog displayCtrl grad_lbm_CATEGORY;
 
 _baseConfig = missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName;
 _allCategories = "true" configClasses _baseConfig;
+_categoryIndex = 0;
 {
     _config = _x;
     _condition = [(_config >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
@@ -24,7 +25,9 @@ _allCategories = "true" configClasses _baseConfig;
         _categoryCtrl lbAdd _displayName;
 
         _data = str [_baseConfigName, _configName];
-        _categoryCtrl lbSetData [_forEachIndex, _data];
+        _categoryCtrl lbSetData [_categoryIndex, _data];
+
+        _categoryIndex = _categoryIndex + 1;
     };
 } forEach _allCategories;
 

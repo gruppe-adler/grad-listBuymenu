@@ -11,8 +11,9 @@ _listCtrl = _dialog displayCtrl grad_lbm_ITEMLIST;
 
 (call compile (_categoryCtrl lbData _selIndex)) params ["_baseConfigName", "_categoryConfigName"];
 
-_allCategories = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName);
+_allItems = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName);
 lbClear _listCtrl;
+_listIndex = 0;
 {
     _config = _x;
     _condition = [(_config >> "condition"), "text", "true"] call CBA_fnc_getConfigEntry;
@@ -28,8 +29,10 @@ lbClear _listCtrl;
         _listCtrl lbAdd format ["%1 Cr - %2",_price,_displayName];
 
         _data = str [_baseConfigName, _categoryConfigName, _itemConfigName, _displayName, _price, _description, _code, _picturePath];
-        _listCtrl lbSetData [_forEachIndex, _data];
+        _listCtrl lbSetData [_listIndex, _data];
+
+        _listIndex = _listIndex + 1;
     };
-} forEach _allCategories;
+} forEach _allItems;
 
 if (lbSize _listCtrl > 0) then {_listCtrl lbSetCurSel 0};
