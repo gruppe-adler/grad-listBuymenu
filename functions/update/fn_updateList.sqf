@@ -36,3 +36,6 @@ _listIndex = 0;
 } forEach _allItems;
 
 if (lbSize _listCtrl > 0) then {_listCtrl lbSetCurSel 0};
+
+//save last category selection
+player setVariable ["grad_lbm_lastSelectedCategoryIndex", lbCursel _categoryCtrl];

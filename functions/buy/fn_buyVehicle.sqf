@@ -4,10 +4,12 @@
 
 params ["_buyer","_price","_code","_baseConfigName","_categoryConfigName","_itemConfigName","_vehiclespawn"];
 
-_spawnEmpty = ([(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "spawnEmpty"), "number", 0] call CBA_fnc_getConfigEntry) == 1;
-_minDistance = 0;
+_spawnEmpty = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "spawnEmpty"), "number", -1] call CBA_fnc_getConfigEntry;
+if (_spawnEmpty == -1) then {
+    _spawnEmpty = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> "spawnEmpty"), "number", 0] call CBA_fnc_getConfigEntry;
+};
 
-//vehiclespawn is object
+_minDistance = 0;
 if (_vehiclespawn isEqualType objNull) then {
     _minDistance = 15;
     _vehiclespawn = getPos _vehiclespawn;
@@ -23,7 +25,7 @@ if (str _spawnPosition == "[]") exitWith {[_buyer, _price, "No vehicle spawn pos
 
 //spawn vehicle
 _vehicle = _itemConfigName createVehicle _spawnPosition;
-if (_spawnEmpty) then {
+if (_spawnEmpty == 1) then {
     clearBackpackCargoGlobal _vehicle;
     clearItemCargoGlobal _vehicle;
     clearMagazineCargoGlobal _vehicle;

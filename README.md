@@ -36,7 +36,7 @@ To add the ACE-Interaction to open the buymenu, use `[object,buyables set,cargos
 | object                        | Object - The object that the interaction will be attached to.                                           |
 | buyables set                  | String - The buyables set that this buymenu will get its items from.                                    |
 | cargospace                    | Object - An object with an inventory, that bought items will be placed in, in case player has no space. |
-| vehiclespawn                  | Object or Position - Bought vehicles and units will try to spawn here. Can be the same as parameter 0.  |
+| vehiclespawn                  | Object or Position - Bought vehicles and units will try to spawn here. Can be the same as parameter 0. If object is used, vehicles will spawn with a minimum distance to object (so use `getpos object` for helipads). |
 | shopname (optional)           | String  - Name of this buymenu. Displayed in title bar. Default is empty.                               |
 | action description (optional) | String - Display name of this action. Default is "Buy Gear".                                            |
 | condition (optional)          | Code - Condition for the action to be displayed.                                                        |
@@ -65,13 +65,13 @@ Buyables are defined in your `description.ext`.
 ### Module Attributes
 | Option      | Explanation                                                                      |
 |-------------|----------------------------------------------------------------------------------|
-| `vehicleMarkers` | Bool - Sets if a 3D marker will be displayed on bought vehicles (optional). On by default.     |
+| `vehicleMarkers` | 0/1 - Sets if a 3D marker will be displayed on bought vehicles (optional). On by default.     |
 | `permissionLevel` | Number - Sets permission level needed to be able to buy anything (optional). Default is 0. |
 
 ### Buyables Set Attributes
 | Option      | Explanation                                                                      |
 |-------------|----------------------------------------------------------------------------------|
-| `vehicleMarkers` | Bool - Overwrites module setting for this set (optional).                           |
+| `vehicleMarkers` | 0/1 - Overwrites module setting for this set (optional).                           |
 | `permissionLevel` | Number - Sets permission level needed to be able to buy from this set. Overwrites module permission level (optional). |
 
 ### Category Attributes
@@ -80,6 +80,7 @@ Buyables are defined in your `description.ext`.
 | `kindOf`      | String - Sets type of category. (see below)                                               |
 | `displayName` | String - Sets display name of category (optional). Category classname is used by default. |
 | `permissionLevel` | Number - Sets permission level needed to be able to buy from this category. Overwrites buyables set permission level (optional). |
+| `spawnEmpty`      | 0/1 - Sets if vehicles of this category will spawn with empty inventory (optional). Off by default. Only available for type `"Vehicles"` |
 | `condition`   | String - Condition for this category to be displayed (optional).                          |
 
 ### Item Attributes
@@ -97,9 +98,9 @@ Buyables are defined in your `description.ext`.
 | `opticsItem`      | String - Sets optics item (i.e. red dot) that is included with this item (optional). Only available for type `"Weapons"`                            |
 | `pointerItem`     | String - Sets pointer item (i.e. gunlight) that is included with this item (optional). Only available for type `"Weapons"`                          |
 | `underbarrelItem` | String - Sets underbarrel item (i.e. bipod) that is included with this item (optional). Only available for type `"Weapons"`                         |
-| `spawnEmpty`      | Bool - Sets if a vehicle will spawn with empty inventory (optional). Default is `false`. Only available for type `"Vehicles"`                    |
 | `previewScale`    | Number - Sets scale factor for 3D object preview in case this item displays too small/big (optional). Only available for type `"Vehicles"`         |
 | `permissionLevel` | Number - Sets permission level needed to be able to buy this item. Overwrites category permission level (optional). |
+| `spawnEmpty`      | 0/1 - Sets if this vehicle will spawn with empty inventory (optional). Overwrites category setting. Only available for type `"Vehicles"`           |
 | `condition`       | String - Condition for this item to be displayed (optional). Does *not* overwrite category condition. |
 
 ### Category Types

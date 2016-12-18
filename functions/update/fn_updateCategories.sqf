@@ -31,4 +31,8 @@ _categoryIndex = 0;
     };
 } forEach _allCategories;
 
-if (lbSize _categoryCtrl > 0) then {_categoryCtrl lbSetCurSel 0};
+if (lbSize _categoryCtrl > 0) then {
+    _selection = (player getVariable ["grad_lbm_lastSelectedCategoryIndex",0]);
+    if (_selection > (lbSize _categoryCtrl - 1)) then {_selection = 0};
+    _categoryCtrl lbSetCurSel _selection;
+};
