@@ -4,7 +4,8 @@ A simple interface to buy stuff.
 ![](http://i.imgur.com/asSxvsi.jpg)
 
 ## Dependencies
-The [CBA_A3](https://github.com/CBATeam/CBA_A3) mod is required.
+* [CBA_A3](https://github.com/CBATeam/CBA_A3)
+* [ACE3](https://github.com/acemod/ACE3)
 
 ## Installation
 
