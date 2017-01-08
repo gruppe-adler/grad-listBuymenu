@@ -12,7 +12,7 @@ _listCtrl = _dialog displayCtrl grad_lbm_ITEMLIST;
 (call compile (_categoryCtrl lbData _selIndex)) params ["_baseConfigName", "_categoryConfigName"];
 
 _allItems = "true" configClasses (missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName);
-lbClear _listCtrl;
+lnbClear _listCtrl;
 _listIndex = 0;
 {
     _config = _x;
@@ -26,16 +26,16 @@ _listIndex = 0;
         _code = compile ([(_config >> "code"), "text", ""] call CBA_fnc_getConfigEntry);
         _picturePath = [(_config >> "picture"), "text", ""] call CBA_fnc_getConfigEntry;
 
-        _listCtrl lbAdd format ["%1 Cr - %2",_price,_displayName];
+        _listCtrl lnbAddRow [format ["%1 Cr", _price], _displayName];
 
         _data = str [_baseConfigName, _categoryConfigName, _itemConfigName, _displayName, _price, _description, _code, _picturePath];
-        _listCtrl lbSetData [_listIndex, _data];
+        _listCtrl lnbSetData [[_listIndex,0], _data];
 
         _listIndex = _listIndex + 1;
     };
 } forEach _allItems;
 
-if (lbSize _listCtrl > 0) then {_listCtrl lbSetCurSel 0};
+if (((lnbSize _listCtrl) select 0) > 0) then {_listCtrl lnbSetCurSelRow 0};
 
 //save last category selection
-player setVariable ["grad_lbm_lastSelectedCategoryIndex", lbCursel _categoryCtrl];
+player setVariable ["grad_lbm_lastSelectedCategoryIndex", lnbCurSelRow _categoryCtrl];

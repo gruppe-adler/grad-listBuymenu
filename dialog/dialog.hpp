@@ -93,7 +93,7 @@ class grad_lbm {
             onLBSelChanged = "_this call grad_lbm_fnc_updateList";
         };
 
-        class ItemList: grad_lbm_RscListBox {
+        class ItemList: grad_lbm_RscListNBox {
             idc = grad_lbm_ITEMLIST;
 
             x = grad_lbm_Column1_X;

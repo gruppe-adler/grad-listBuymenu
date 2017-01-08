@@ -188,3 +188,57 @@ class grad_lbm_RscListBox
 		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
 	};
 };
+
+class grad_lbm_RscListNBox
+{
+	access = 0;
+	idc = -1;
+	type = CT_LISTNBOX;
+	style = ST_LEFT + LB_TEXTURES;
+	default = 0;
+	blinkingPeriod = 0;
+
+	colorSelectBackground[] = {0.95, 0.95, 0.95, 1};
+	colorSelectBackground2[] = {1, 1, 1, 0.5};
+
+	sizeEx = 0.035 * TEXT_SCALE;
+	font = "PuristaMedium";
+	shadow = 0;
+	colorText[] = {1,1,1,1};
+	colorDisabled[] = {1, 1, 1, 0.25};
+	colorSelect[] = {0, 0, 0, 1};
+	colorSelect2[] = {0, 0, 0, 1};
+	colorShadow[] = {0,0,0,0.5};
+
+	tooltip = "";
+	tooltipColorText[] = {1, 1, 1, 1};
+	tooltipColorBox[] = {1, 1, 1, 1};
+	tooltipColorShade[] = {0, 0, 0, 0.65};
+
+	columns[] = {0.021,0.25};
+
+	drawSideArrows = 0;
+	idcLeft = 1000;
+	idcRight = 1001;
+
+	period = 0.8;
+
+	rowHeight = 0;
+	maxHistoryDelay = 1;
+
+	soundSelect[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.09,1};
+
+	class ListScrollBar
+	{
+		width = 0;
+		height = 0;
+		scrollSpeed = 0.01;
+
+		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+		arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+		thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+
+		color[] = {1,1,1,1};
+	};
+};
