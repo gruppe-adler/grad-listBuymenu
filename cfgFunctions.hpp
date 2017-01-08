@@ -6,6 +6,7 @@ class GRAD_lbm {
     class common {
         file = MODULES_DIRECTORY\grad-listBuymenu\functions\common;
         class addInteraction {};
+        class checkCargoSpace {};
         class getModuleRoot {};
         class getPermissionLevel {};
         class getPicturePath {};

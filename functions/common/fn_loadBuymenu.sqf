@@ -3,15 +3,22 @@
 */
 
 #include "..\..\dialog\defines.hpp"
-params [["_caller", player],["_cargospace", objNull], ["_vehiclespawn", objNull],["_baseConfigName", ""],["_title", ""]];
+params [["_object", player],["_cargospace", objNull], ["_vehiclespawn", objNull],["_baseConfigName", ""],["_title", ""]];
 
-if (isNull _cargospace) then {_cargospace = _caller};
+if (typeName _cargospace == "OBJECT") then {
+    if (isNull _cargospace) then {_cargospace = _caller};
+};
+
 if (_vehiclespawn isEqualType objNull) then {
     if (isNull _vehiclespawn) then {_vehiclespawn = _caller};
 };
 
-missionNamespace setVariable ["grad_lbm_currentCargospace", _cargospace];
-missionNamespace setVariable ["grad_lbm_currentVehiclespawn", _vehiclespawn];
+missionNamespace setVariable ["grad_lbm_currentOwnerObject", _object];
+_object setVariable ["grad_lbm_currentVehiclespawn", _vehiclespawn];
+if (typeName _cargospace == "ARRAY") then {
+    _object setVariable ["grad_lbm_currentCargoSpacePosition", _cargospace];
+};
+
 
 //create dialog
 disableSerialization;

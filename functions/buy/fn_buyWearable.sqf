@@ -6,11 +6,13 @@
 params ["_buyer","_price","_code","_baseConfigName", "_categoryConfigName", "_itemConfigName"];
 if (player != _buyer) exitWith {};
 
-_cargospace = missionNamespace getVariable ["grad_lbm_currentCargospace", objNull];
+_cargospace = (missionNamespace getVariable ["grad_lbm_currentOwnerObject",player]) getVariable ["grad_lbm_currentCargospace", objNull];
 
 //add to cargospace function
 _addToCargo = {
     params ["_cargospace", "_itemConfigName", "_type"];
+
+    _cargospace = [_cargospace] call grad_lbm_fnc_checkCargoSpace;
 
     if !(_cargospace canAdd _itemConfigName) exitWith {
         [_buyer, _price, "Could not add your purchase to trader's cargo. You have been reimbursed."] call grad_lbm_fnc_reimburse;

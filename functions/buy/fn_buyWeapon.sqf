@@ -6,11 +6,12 @@
 params ["_buyer","_price","_code","_baseConfigName", "_categoryConfigName", "_itemConfigName"];
 if (player != _buyer) exitWith {};
 
-_cargospace = missionNamespace getVariable ["grad_lbm_currentCargospace", objNull];
-
 //add to cargospace function
 _addToCargo = {
-    params ["_cargospace", "_itemConfigName", "_muzzleItem", "_opticsItem", "_pointerItem", "_underbarrelItem"];
+    params ["_itemConfigName", "_muzzleItem", "_opticsItem", "_pointerItem", "_underbarrelItem"];
+
+    _cargospace = (missionNamespace getVariable ["grad_lbm_currentOwnerObject",player]) getVariable ["grad_lbm_currentCargospace", objNull];
+    _cargospace = [_cargospace] call grad_lbm_fnc_checkCargoSpace;
 
     if !(_cargospace canAdd _itemConfigName) exitWith {
         [_buyer, _price, "Could not add your purchase to trader's cargo. You have been reimbursed."] call grad_lbm_fnc_reimburse;
@@ -44,7 +45,7 @@ switch (_type) do {
             player addPrimaryWeaponItem _pointerItem;
             player addPrimaryWeaponItem _underbarrelItem;
         } else {
-            [_cargospace, _itemConfigName, _muzzleItem, _opticsItem, _pointerItem, _underbarrelItem] call _addToCargo;
+            [_itemConfigName, _muzzleItem, _opticsItem, _pointerItem, _underbarrelItem] call _addToCargo;
         };
     };
 
@@ -57,7 +58,7 @@ switch (_type) do {
             player addHandgunItem _pointerItem;
             player addHandgunItem _underbarrelItem;
         } else {
-            [_cargospace, _itemConfigName, _muzzleItem, _opticsItem, _pointerItem, _underbarrelItem] call _addToCargo;
+            [_itemConfigName, _muzzleItem, _opticsItem, _pointerItem, _underbarrelItem] call _addToCargo;
         };
     };
 
@@ -70,7 +71,7 @@ switch (_type) do {
             player addSecondaryWeaponItem _pointerItem;
             player addSecondaryWeaponItem _underbarrelItem;
         } else {
-            [_cargospace, _itemConfigName, _muzzleItem, _opticsItem, _pointerItem, _underbarrelItem] call _addToCargo;
+            [_itemConfigName, _muzzleItem, _opticsItem, _pointerItem, _underbarrelItem] call _addToCargo;
         };
     };
 
