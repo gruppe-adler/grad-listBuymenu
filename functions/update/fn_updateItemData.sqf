@@ -11,9 +11,9 @@ if (isNull _dialog) exitWith {};
 _descCtrl = _dialog displayCtrl grad_lbm_DESCRIPTION;
 _listCtrl = _dialog displayCtrl grad_lbm_ITEMLIST;
 
-_selIndex = lbCursel _listCtrl;
+_selIndex = lnbCurSelRow _listCtrl;
 
-(call compile (_listCtrl lbData _selIndex)) params ["_baseConfigName", "_categoryConfigName", "_itemConfigName", "_displayName", "_price", "_description", "_code", "_picturePath"];
+(call compile (_listCtrl lnbData [_selIndex,0])) params ["_baseConfigName", "_categoryConfigName", "_itemConfigName", "_displayName", "_price", "_description", "_code", "_picturePath"];
 
 //set description
 _stock = [_baseConfigName, _categoryConfigName, _itemConfigName] call grad_lbm_fnc_getStock;
