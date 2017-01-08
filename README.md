@@ -108,7 +108,7 @@ Buyables are defined in your `description.ext`.
 Because different types of items require different spawn routines, the type of a category needs to be defined. Available types are:
 * `"Weapons"` (for any type of weapon - primary, handgun or launcher)
 * `"Items"` (for any inventory item including magazines, grenades, etc.)
-* `"Apparel"` (for uniforms, vests, backpacks, helmets)
+* `"Wearables"` (for uniforms, vests, backpacks, helmets)
 * `"Vehicles"` (for cars, trucks, helicopters, tanks, etc.)
 * `"Units"` (for AI units)
 * `"Other"` (for anything else - nothing will spawn, only `code` will be called)
@@ -124,7 +124,7 @@ Called on server when type is:
 Called on client when type is:
 * `"Weapons"`
 * `"Items"`
-* `"Apparel"`
+* `"Wearables"`
 
 | Type                           | Passed Parameters                                    |
 |--------------------------------|------------------------------------------------------|
