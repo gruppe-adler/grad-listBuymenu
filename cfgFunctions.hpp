@@ -5,6 +5,7 @@
 class GRAD_lbm {
     class common {
         file = MODULES_DIRECTORY\grad-listBuymenu\functions\common;
+        class addFunds {};
         class addInteraction {};
         class checkCargoSpace {};
         class getModuleRoot {};
