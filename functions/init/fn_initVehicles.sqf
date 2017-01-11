@@ -35,6 +35,8 @@ _baseConfigs = "true" configClasses (missionConfigFile >> "CfgGradBuymenu");
     if (_type isKindOf "StaticWeapon") then {_size = _size*1.2};
 
     [GRAD_LBM_VEHICLESIZES, _type, _size] call CBA_fnc_hashSet;
+
+    deleteVehicle _vehicle;
 } forEach _types;
 
 publicVariable "GRAD_LBM_VEHICLESIZES";
