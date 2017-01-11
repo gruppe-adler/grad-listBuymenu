@@ -14,10 +14,11 @@ if (_vehiclespawn isEqualType objNull) then {
 };
 
 missionNamespace setVariable ["grad_lbm_currentOwnerObject", _object];
-_object setVariable ["grad_lbm_currentCargospace", _cargospace];
 _object setVariable ["grad_lbm_currentVehiclespawn", _vehiclespawn];
 if (typeName _cargospace == "ARRAY") then {
     _object setVariable ["grad_lbm_currentCargoSpacePosition", _cargospace];
+} else {
+    _object setVariable ["grad_lbm_currentCargospace", _cargospace];
 };
 
 
