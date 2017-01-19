@@ -1,22 +1,6 @@
 # GRAD List-Buymenu
 A simple interface to buy stuff.
 
-<!-- TOC depthFrom:1 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [GRAD List-Buymenu](#grad-list-buymenu)
-	- [Dependencies](#dependencies)
-	- [Installation](#installation)
-- [include "modules\grad-listBuymenu\grad_listBuymenu.hpp"](#include-modulesgrad-listbuymenugradlistbuymenuhpp)
-- [define MODULES_DIRECTORY node_modules](#define-modulesdirectory-nodemodules)
-- [include "node_modules\grad-listBuymenu\grad_listBuymenu.hpp"](#include-nodemodulesgrad-listbuymenugradlistbuymenuhpp)
-	- [Usage](#usage)
-	- [Configuration](#configuration)
-	- [Example](#example)
-- [define MODULES_DIRECTORY node_modules](#define-modulesdirectory-nodemodules)
-- [include "node_modules\grad-listBuymenu\grad_listBuymenu.hpp"](#include-nodemodulesgrad-listbuymenugradlistbuymenuhpp)
-
-<!-- /TOC -->
-
 ![](http://i.imgur.com/asSxvsi.jpg)
 
 ## Dependencies
