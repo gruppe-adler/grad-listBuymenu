@@ -50,6 +50,16 @@ class grad_lbm {
             h = grad_lbm_Item_H;
         };
 
+        class ItemListBG: grad_lbm_RscBackground {
+            idc = -1;
+            colorBackground[] = {0,0,0,0.4};
+
+            x = grad_lbm_Column1_X;
+            y = grad_lbm_BG_Y + grad_lbm_Padding_Y + grad_lbm_Item_H + grad_lbm_ItemSpace_Y;
+            w = grad_lbm_Column_W;
+            h = grad_lbm_Itemlist_H;
+        };
+
         class PreviewPictureBG: grad_lbm_RscBackground {
             idc = -1;
             colorBackground[] = {0,0,0,0.4};
