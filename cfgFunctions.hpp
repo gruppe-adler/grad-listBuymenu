@@ -27,6 +27,8 @@ class GRAD_lbm {
         class buyVehicle {};
         class buyWeapon {};
         class buyWearable {};
+        class callCodeClient {};
+        class callCodeServer {};
         class reimburse {};
         class vehicleMarker {};
     };

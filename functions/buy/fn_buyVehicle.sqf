@@ -33,7 +33,7 @@ if (_spawnEmpty == 1) then {
 };
 
 [_buyer,_itemConfigName,_vehicle,_spawnPosition] call _code;
-
+[[_buyer,_itemConfigName,_vehicle,_spawnPosition],_code] remoteExec ["grad_lbm_fnc_callCodeClient",0,false];
 
 //vehicle marker
 _c1 = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> "vehicleMarkers"), "number", 2] call CBA_fnc_getConfigEntry;

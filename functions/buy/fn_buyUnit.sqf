@@ -28,3 +28,4 @@ for "_i" from 1 to _amount do {
 };
 
 [_buyer,_itemConfigName,_group,_spawnPosition] call _code;
+[[_buyer,_itemConfigName,_group,_spawnPosition],_code] remoteExec ["grad_lbm_fnc_callCodeClient",0,false];

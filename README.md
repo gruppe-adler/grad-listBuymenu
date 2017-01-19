@@ -134,23 +134,14 @@ Because different types of items require different spawn routines, the type of a
 * `"Other"` (for anything else - nothing will spawn, only `code` will be called)
 
 ### Code
-The script saved in `code` is called when an item is bought. Locality and passed parameters are dependent on category type.
+The script saved in `code` is called when an item is bought. It will be called on server and buyer. The passed parameters depend on item type.
 
-Called on server when type is:
-* `"Units"`
-* `"Vehicles"`
-* `"Other"`
 
-Called on client when type is:
-* `"Weapons"`
-* `"Items"`
-* `"Wearables"`
-
-| Type                           | Passed Parameters                                    |
-|--------------------------------|------------------------------------------------------|
-| `"Weapons"`, `"Items"`, `"Apparel"`, `"Other"` | [buyer, item class name]                             |
-| `"Vehicles"`                       | [buyer, vehicle class name, vehicle, spawn position] |
-| `"Units"`                          | [buyer, unit class name, group, spawn position]      |
+| Type                                             | Passed Parameters                                    |
+|--------------------------------------------------|------------------------------------------------------|
+| `"Weapons"`, `"Items"`, `"Wearables"`, `"Other"` | [buyer, item class name]                             |
+| `"Vehicles"`                                     | [buyer, vehicle class name, vehicle, spawn position] |
+| `"Units"`                                        | [buyer, unit class name, group, spawn position]      |
 
 
 ## Example

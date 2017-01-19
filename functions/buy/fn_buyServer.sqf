@@ -25,14 +25,17 @@ if (_type == "") then {_type = toUpper ([(missionConfigFile >> "CfgGradBuymenu" 
 switch (_type) do {
     case ("WEAPONS"): {
         [_buyer,_price,_code,_baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_buyWeapon",0,false];
+        [[_buyer,_itemConfigName],_code] call grad_lbm_fnc_callCodeServer;
     };
 
     case ("ITEMS"): {
         [_buyer,_price,_code,_baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_buyItem",0,false];
+        [[_buyer,_itemConfigName],_code] call grad_lbm_fnc_callCodeServer;
     };
 
     case ("WEARABLES"): {
         [_buyer,_price,_code,_baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_buyWearable",0,false];
+        [[_buyer,_itemConfigName],_code] call grad_lbm_fnc_callCodeServer;
     };
 
     case ("VEHICLES"): {
@@ -45,6 +48,7 @@ switch (_type) do {
 
     case ("OTHER"): {
         [_buyer,_itemConfigName] call _code;
+        [[_buyer,_itemConfigName],_code] remoteExec ["grad_lbm_fnc_callCodeClient",0,false];
     };
 
     default {
