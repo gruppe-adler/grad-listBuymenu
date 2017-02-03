@@ -46,7 +46,7 @@ To add the ACE-Interaction to open the buymenu, use `[object,buyables set,cargos
 |-------------------------------|---------------------------------------------------------------------------------------------------------|
 | object                        | Object - The object that the interaction will be attached to.                                           |
 | buyables set                  | String - The buyables set that this buymenu will get its items from.                                    |
-| cargospace                    | Object or Position - An object with an inventory, that bought items will be placed in, in case player has no space. If position is used, items will be placed on the ground at position. |
+| cargospace                    | Object or PositionASL - An object with an inventory, that bought items will be placed in, in case player has no space. If position is used, items will be placed on the ground at position. |
 | vehiclespawn                  | Object or Position - Bought vehicles and units will try to spawn here. Can be the same as parameter 0. If object is used, vehicles will spawn with a minimum distance to object (so use `getpos object` for helipads). |
 | shopname (optional)           | String  - Name of this buymenu. Displayed in title bar. Default is empty.                               |
 | action description (optional) | String - Display name of this action. Default is "Buy Gear".                                            |
