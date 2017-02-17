@@ -29,3 +29,18 @@ for "_i" from 1 to _amount do {
 
 [_buyer,_itemConfigName,_group,_spawnPosition] call _code;
 [[_buyer,_itemConfigName,_group,_spawnPosition],_code] remoteExec ["grad_lbm_fnc_callCodeClient",0,false];
+
+
+//vehicle marker
+_c1 = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> "vehicleMarkers"), "number", 2] call CBA_fnc_getConfigEntry;
+_c2 = [(missionConfigFile >> "CfgGradBuymenu" >> "vehicleMarkers"), "number", 1] call CBA_fnc_getConfigEntry;
+switch (true) do {
+    case (_c1 == 1): {
+        [_buyer, leader _group, _baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_vehicleMarker", 0, false];
+    };
+    case (_c1 == 0): {false};
+    case (_c2 == 1): {
+        [_buyer, leader _group, _baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_vehicleMarker", 0, false];
+    };
+    default {false};
+};

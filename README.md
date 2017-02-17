@@ -86,7 +86,7 @@ Buyables are defined in your `description.ext`.
 ### Module Attributes
 | Option      | Explanation                                                                      |
 |-------------|----------------------------------------------------------------------------------|
-| `vehicleMarkers` | 0/1 - Sets if a 3D marker will be displayed on bought vehicles (optional). On by default.     |
+| `vehicleMarkers` | 0/1 - Sets if a 3D marker will be displayed on bought vehicles and units (optional). On by default.     |
 | `permissionLevel` | Number - Sets permission level needed to be able to buy anything (optional). Default is 0. |
 
 ### Buyables Set Attributes
