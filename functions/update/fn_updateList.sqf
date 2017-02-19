@@ -38,4 +38,4 @@ _listIndex = 0;
 if (((lnbSize _listCtrl) select 0) > 0) then {_listCtrl lnbSetCurSelRow 0};
 
 //save last category selection
-player setVariable ["grad_lbm_lastSelectedCategoryIndex", lnbCurSelRow _categoryCtrl];
+player setVariable ["grad_lbm_lastSelectedCategoryIndex", lbCurSel _categoryCtrl];

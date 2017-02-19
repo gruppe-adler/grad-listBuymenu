@@ -2,6 +2,9 @@
 *
 */
 
+#include "..\..\dialog\ui_toolkit.hpp"
+#include "..\..\dialog\defines.hpp"
+
 if (!isServer) exitWith {};
 
 GRAD_LBM_VEHICLESIZES = [] call CBA_fnc_hashCreate;
@@ -24,15 +27,19 @@ _baseConfigs = "true" configClasses (missionConfigFile >> "CfgGradBuymenu");
 
 
 //check sizes
+_aspectRatio = grad_lbm_Column_W/grad_lbm_Picture_H;
 {
     _type = _x;
     _vehicle = _type createVehicleLocal [0,0,0];
     _dimensions = _vehicle call BIS_fnc_boundingBoxDimensions;
-    _dimensions params ["_h","_l","_w"];
-    _size = sqrt(_h*_h + _l*_l + _w*_w);
+    _dimensions params ["_w","_l","_h"];
+    _highObject = _l/_h < _aspectRatio && _w/_h < _aspectRatio;
+
+    _size = if (_highObject) then {_h * grad_lbm_Picture_H * 8} else {(_l max _w) * grad_lbm_Column_W * 2};
 
     //static weapons tend to be a little too small
-    if (_type isKindOf "StaticWeapon") then {_size = _size*1.2};
+    if (_type isKindOf "StaticWeapon") then {_size = _size*0.8};
+    if (_type isKindOf "Static") then {_size = _size*1.3};
 
     [GRAD_LBM_VEHICLESIZES, _type, _size] call CBA_fnc_hashSet;
 
