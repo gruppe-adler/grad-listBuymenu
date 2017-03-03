@@ -15,5 +15,5 @@ _selIndex = lnbCurSelRow _listCtrl;
 [_baseConfigName, _categoryConfigName, _itemConfigName, player, _price, (missionNamespace getVariable ["grad_lbm_currentOwnerObject",player]) getVariable ["grad_lbm_currentVehiclespawn", objNull]] remoteExec ["grad_lbm_fnc_buyServer",2,false];
 
 //detract funds
-player setVariable ["grad_lbm_myFunds", (player getVariable ["grad_lbm_myFunds", 0]) - _price];
+player setVariable ["grad_lbm_myFunds", (player getVariable ["grad_lbm_myFunds", 0]) - _price, true];
 [] call grad_lbm_fnc_updateFunds;
