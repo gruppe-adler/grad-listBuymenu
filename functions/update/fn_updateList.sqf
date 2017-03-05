@@ -20,9 +20,9 @@ _listIndex = 0;
 
     if (call compile _condition) then {
         _itemConfigName = configName _config;
-        _displayName = [(_config >> "displayName"), "text", "UNDEFINED NAME"] call CBA_fnc_getConfigEntry;
+        _displayName = [(_config >> "displayName"), "text", [_itemConfigName] call grad_lbm_fnc_getDisplayName] call CBA_fnc_getConfigEntry;
         _price = [(_config >> "price"), "number", 999999] call CBA_fnc_getConfigEntry;
-        _description = [(_config >> "description"), "text", ""] call CBA_fnc_getConfigEntry;
+        _description = [(_config >> "description"), "text", [_itemConfigName] call grad_lbm_fnc_getDescription] call CBA_fnc_getConfigEntry;
         _code = compile ([(_config >> "code"), "text", ""] call CBA_fnc_getConfigEntry);
         _picturePath = [(_config >> "picture"), "text", ""] call CBA_fnc_getConfigEntry;
 

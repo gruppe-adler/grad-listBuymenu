@@ -8,6 +8,8 @@ class GRAD_lbm {
         class addFunds {};
         class addInteraction {};
         class checkCargoSpace {};
+        class getDescription {};
+        class getDisplayName {};
         class getModuleRoot {};
         class getPermissionLevel {};
         class getPicturePath {};

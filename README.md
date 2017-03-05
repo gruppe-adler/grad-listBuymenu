@@ -110,8 +110,8 @@ Buyables are defined in your `description.ext`.
 ### Item Attributes
 | Option      | Explanation                                                                                                                             |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| `displayName` | String - Sets display name of item. (*not* optional here)                                                                                        |
-| `description` | String - Sets description of item. Supports structured text.                                                                                     |
+| `displayName` | String - Sets display name of item. (optional, actual displayName of item is used if it has one)                                            |
+| `description` | String - Sets description of item. Supports structured text. (optional, for CfgWeapon items their short description is used)                     |
 | `price`       | Number - Sets price of (one set of) this item.                                                                                                   |
 | `stock`       | Number - Sets total amount of this item that can be bought.                                                                                      |
 | `amount`      | Number - Sets amount of this item that buyer gets per click of buy button (optional). Default is 1. Only available for type `"Items"` and `"Units"`. |
