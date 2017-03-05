@@ -42,15 +42,18 @@ class CfgFunctions {
 ### Access Menu
 To add the ACE-Interaction to open the buymenu, use `[object,buyables set,cargospace,vehiclespawn,shopname,action description,condition] call grad_lbm_fnc_addInteraction`:
 
-| Parameter                     | Explanation                                                                                             |
-|-------------------------------|---------------------------------------------------------------------------------------------------------|
-| object                        | Object - The object that the interaction will be attached to.                                           |
-| buyables set                  | String - The buyables set that this buymenu will get its items from.                                    |
-| cargospace                    | Object or PositionASL - An object with an inventory, that bought items will be placed in, in case player has no space. If position is used, items will be placed on the ground at position. |
+| Parameter                     | Explanation                                                                                                                                                                                                            |
+|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| object                        | Object - The object that the interaction will be attached to.                                                                                                                                                          |
+| buyables set                  | String - The buyables set that this buymenu will get its items from.                                                                                                                                                   |
+| cargospace                    | Object or PositionASL - An object with an inventory, that bought items will be placed in, in case player has no space. If position is used, items will be placed on the ground at position.                            |
 | vehiclespawn                  | Object or Position - Bought vehicles and units will try to spawn here. Can be the same as parameter 0. If object is used, vehicles will spawn with a minimum distance to object (so use `getpos object` for helipads). |
-| shopname (optional)           | String  - Name of this buymenu. Displayed in title bar. Default is empty.                               |
-| action description (optional) | String - Display name of this action. Default is "Buy Gear".                                            |
-| condition (optional)          | Code - Condition for the action to be displayed.                                                        |
+| shopname (optional)           | String  - Name of this buymenu. Displayed in title bar. Default is empty.                                                                                                                                              |
+| action description (optional) | String - Display name of this action. Default is "Buy Gear".                                                                                                                                                           |
+| condition (optional)          | Code - Condition for the action to be displayed.                                                                                                                                                                       |
+| position (optional)           | Position array, Position code or Selection Name - Position of interaction. Only relevant if custom action path is used.                                                                                                |
+| distance (optional)           | Number - Interaction distance. Only relevant if custom action path is used.                                                                                                                                            |
+| action path (optional)        | Array - ACE action path. Defaults to ["ACE_SelfActions"] or ["ACE_MainActions"]                                                                                                                                        |
 
 ### Add Funds
 To add funds to a unit use `[unit,funds] call grad_lbm_fnc_addFunds`.  
