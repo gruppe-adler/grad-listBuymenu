@@ -31,6 +31,13 @@ switch (true) do {
         };
     };
 
+    case (isClass (configFile >> "CfgGlasses" >> _configName)): {
+        _picturePath = getText (configFile >> "CfgGlasses" >> _configName >> "picture");
+        if (_picturePath == "") then {
+            _picturePath = getText (configFile >> "CfgGlasses" >> _configName >> "uipicture");
+        };
+    };
+
     default {
         _picturePath = "";
     };
