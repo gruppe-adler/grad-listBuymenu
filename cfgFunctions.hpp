@@ -8,6 +8,7 @@ class GRAD_lbm {
         class addFunds {};
         class addInteraction {};
         class checkCargoSpace {};
+        class clearTrackingData {};
         class getDescription {};
         class getDisplayName {};
         class getFunds {};
@@ -19,6 +20,7 @@ class GRAD_lbm {
         class loadBuymenu {};
         class rotateModel {};
         class setPermissionLevel {};
+        class trackPurchase {};
     };
 
     class buy {
@@ -42,6 +44,9 @@ class GRAD_lbm {
             postInit = 1;
         };
         class initStocks {
+            postInit = 1;
+        };
+        class initTracking {
             postInit = 1;
         };
         class initVehicles {

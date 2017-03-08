@@ -80,6 +80,17 @@ This function has global effect. Unit will only be able to buy items of equal or
 | unit            | Object - The unit whose permission level to set. |
 | permissionLevel | Number - The permission level to set.            |
 
+### View Tracking Data
+There is currently no functionality to view the data. Sorry.
+
+### Clear Tracking Data
+To clear the tracking data of a mission use `[trackingTag] call grad_lbm_fnc_clearTrackingData`.
+This function has to be executed on server.
+
+| Parameter              | Explanation                                                                                |
+|------------------------|--------------------------------------------------------------------------------------------|
+| trackingTag (optional) | The tag that you want want to delete. Defaults to the tag of the currently loaded mission. |
+
 ## Configuration
 Buyables are defined in your `description.ext`.
 * CfgGradBuymenu
@@ -94,45 +105,54 @@ Buyables are defined in your `description.ext`.
         * ...
 
 ### Module Attributes
-| Option      | Explanation                                                                      |
-|-------------|----------------------------------------------------------------------------------|
-| `vehicleMarkers` | 0/1 - Sets if a 3D marker will be displayed on bought vehicles and units (optional). On by default.     |
-| `permissionLevel` | Number - Sets permission level needed to be able to buy anything (optional). Default is 0. |
+
+| Option            | Explanation                                                                                                                             |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| `vehicleMarkers`  | 0/1 - Sets if a 3D marker will be displayed on bought vehicles and units (optional). On by default.                                     |
+| `permissionLevel` | Number - Sets permission level needed to be able to buy anything (optional). Default is 0.                                              |
+| `tracking`        | 0/1 - Sets if purchases will be tracked and saved in profileNamespace of server (optional). Default is 0.                               |
+| `trackingTag`     | String - The tag that this missions tracking data will be saved under. Can be the same in two different missions to combine their data. |
 
 ### Buyables Set Attributes
-| Option      | Explanation                                                                      |
-|-------------|----------------------------------------------------------------------------------|
-| `vehicleMarkers` | 0/1 - Overwrites module setting for this set (optional).                           |
-| `permissionLevel` | Number - Sets permission level needed to be able to buy from this set. Overwrites module permission level (optional). |
+
+| Option            | Explanation                                                                                                                         |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `vehicleMarkers`  | 0/1 - Overrides module setting for this set (optional).                                                                             |
+| `permissionLevel` | Number - Sets permission level needed to be able to buy from this set. Overrides module permission level (optional).                |
+| `tracking`        | 0/1 - Sets if purchases will be tracked and saved in profileNamespace of server (optional). Overrides module setting. Default is 0. |
 
 ### Category Attributes
-| Option      | Explanation                                                                      |
-|-------------|----------------------------------------------------------------------------------|
-| `kindOf`      | String - Sets type of category. (see below)                                               |
-| `displayName` | String - Sets display name of category (optional). Category classname is used by default. |
-| `permissionLevel` | Number - Sets permission level needed to be able to buy from this category. Overwrites buyables set permission level (optional). |
-| `spawnEmpty`      | 0/1 - Sets if vehicles of this category will spawn with empty inventory (optional). Off by default. Only available for type `"Vehicles"` |
-| `condition`   | String - Condition for this category to be displayed (optional).                          |
+
+| Option            | Explanation                                                                                                                               |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| `kindOf`          | String - Sets type of category. (see below)                                                                                               |
+| `displayName`     | String - Sets display name of category (optional). Category classname is used by default.                                                 |
+| `permissionLevel` | Number - Sets permission level needed to be able to buy from this category. Overrides buyables set permission level (optional).           |
+| `spawnEmpty`      | 0/1 - Sets if vehicles of this category will spawn with empty inventory (optional). Off by default. Only available for type `"Vehicles"`  |
+| `condition`       | String - Condition for this category to be displayed (optional).                                                                          |
+| `tracking`        | 0/1 - Sets if purchases will be tracked and saved in profileNamespace of server (optional). Overrides buyables set setting. Default is 0. |
 
 ### Item Attributes
-| Option      | Explanation                                                                                                                             |
-|-------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| `displayName` | String - Sets display name of item. (optional, actual displayName of item is used if it has one)                                            |
-| `description` | String - Sets description of item. Supports structured text. (optional, for CfgWeapon items their short description is used)                     |
-| `price`       | Number - Sets price of (one set of) this item.                                                                                                   |
-| `stock`       | Number - Sets total amount of this item that can be bought.                                                                                      |
-| `amount`      | Number - Sets amount of this item that buyer gets per click of buy button (optional). Default is 1. Only available for type `"Items"` and `"Units"`. |
-| `code`        | String - Sets code that is executed when item is bought (optional). (see below)                                                                  |
-| `picture`     | String - Path to custom picture for this item (optional). By default the UI picture, that most objects in Arma have, is used.                      |
-| `kindOf`      | String - Overwrites category type for this item (optional).                                                                                        |
-| `muzzleItem`      | String - Sets muzzle item (i.e. suppressor) that is included with this item (optional). Only available for type `"Weapons"`                         |
-| `opticsItem`      | String - Sets optics item (i.e. red dot) that is included with this item (optional). Only available for type `"Weapons"`                            |
-| `pointerItem`     | String - Sets pointer item (i.e. gunlight) that is included with this item (optional). Only available for type `"Weapons"`                          |
-| `underbarrelItem` | String - Sets underbarrel item (i.e. bipod) that is included with this item (optional). Only available for type `"Weapons"`                         |
-| `previewScale`    | Number - Sets scale factor for 3D object preview in case this item displays too small/big (optional). Only available for type `"Vehicles"`         |
-| `permissionLevel` | Number - Sets permission level needed to be able to buy this item. Overwrites category permission level (optional). |
-| `spawnEmpty`      | 0/1 - Sets if this vehicle will spawn with empty inventory (optional). Overwrites category setting. Only available for type `"Vehicles"`           |
-| `condition`       | String - Condition for this item to be displayed (optional). Does *not* overwrite category condition. |
+
+| Option            | Explanation                                                                                                                                          |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `displayName`     | String - Sets display name of item. (optional, actual displayName of item is used if it has one)                                                     |
+| `description`     | String - Sets description of item. Supports structured text. (optional, for CfgWeapon items their short description is used)                         |
+| `price`           | Number - Sets price of (one set of) this item.                                                                                                       |
+| `stock`           | Number - Sets total amount of this item that can be bought.                                                                                          |
+| `amount`          | Number - Sets amount of this item that buyer gets per click of buy button (optional). Default is 1. Only available for type `"Items"` and `"Units"`. |
+| `code`            | String - Sets code that is executed when item is bought (optional). (see below)                                                                      |
+| `picture`         | String - Path to custom picture for this item (optional). By default the UI picture, that most objects in Arma have, is used.                        |
+| `kindOf`          | String - Overrides category type for this item (optional).                                                                                           |
+| `muzzleItem`      | String - Sets muzzle item (i.e. suppressor) that is included with this item (optional). Only available for type `"Weapons"`                          |
+| `opticsItem`      | String - Sets optics item (i.e. red dot) that is included with this item (optional). Only available for type `"Weapons"`                             |
+| `pointerItem`     | String - Sets pointer item (i.e. gunlight) that is included with this item (optional). Only available for type `"Weapons"`                           |
+| `underbarrelItem` | String - Sets underbarrel item (i.e. bipod) that is included with this item (optional). Only available for type `"Weapons"`                          |
+| `previewScale`    | Number - Sets scale factor for 3D object preview in case this item displays too small/big (optional). Only available for type `"Vehicles"`           |
+| `permissionLevel` | Number - Sets permission level needed to be able to buy this item. Overrides category permission level (optional).                                   |
+| `spawnEmpty`      | 0/1 - Sets if this vehicle will spawn with empty inventory (optional). Overrides category setting. Only available for type `"Vehicles"`              |
+| `condition`       | String - Condition for this item to be displayed (optional). Does *not* Override category condition.                                                 |
+| `tracking`        | 0/1 - Sets if purchases will be tracked and saved in profileNamespace of server (optional). Overrides category setting. Default is 0.                |
 
 ### Category Types
 Because different types of items require different spawn routines, the type of a category needs to be defined. Available types are:

@@ -55,3 +55,8 @@ switch (_type) do {
         [_buyer, _price, "Unknown item type. You got your money back."] remoteExec ["grad_lbm_fnc_reimburse",0,false];
     };
 };
+
+//track
+if (!isNil "grad_lbm_trackingTag") then {
+    [_baseConfigName,_categoryConfigName,_itemConfigName] call GRAD_lbm_fnc_trackPurchase;
+};
