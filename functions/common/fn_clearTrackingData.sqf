@@ -2,7 +2,7 @@
 #define COMPONENT lbm
 #include "\x\cba\addons\main\script_macros_mission.hpp"
 
-params ["_tag",[(missionConfigFile >> "CfgGradBuymenu" >> "trackingTag"), "text", ""] call CBA_fnc_getConfigEntry];
+params [["_tag",[(missionConfigFile >> "CfgGradBuymenu" >> "trackingTag"), "text", ""] call CBA_fnc_getConfigEntry]];
 
 if (!isServer) exitWith {};
 if (_tag == "") exitWith {false};
