@@ -64,6 +64,13 @@ This function has global effect. New funds total is returned.
 | unit            | Object - The unit whose funds to set.            |
 | funds           | Number - The funds to add to the unit.           |
 
+### Get Funds
+To get the funds of a unit use `[unit] call grad_lbm_fnc_getFunds`.
+
+| Parameter | Explanation                          |
+|-----------|--------------------------------------|
+| unit      | Object - The unit whose funds to get |
+
 ### Set Permission Level
 To set a unit's permission level use `[unit, permissionLevel] call grad_lbm_fnc_setPermissionLevel`.  
 This function has global effect. Unit will only be able to buy items of equal or lower permission level. If no permission level is set, unit has level 0.

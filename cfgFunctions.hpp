@@ -10,6 +10,7 @@ class GRAD_lbm {
         class checkCargoSpace {};
         class getDescription {};
         class getDisplayName {};
+        class getFunds {};
         class getModuleRoot {};
         class getPermissionLevel {};
         class getPicturePath {};
