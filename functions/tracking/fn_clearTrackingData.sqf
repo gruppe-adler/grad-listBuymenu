@@ -1,5 +1,6 @@
-#define PREFIX grad
+#define PREFIX GRAD
 #define COMPONENT lbm
+#include "..\..\defines_tracking.hpp"
 #include "\x\cba\addons\main\script_macros_mission.hpp"
 
 params [["_tag",[(missionConfigFile >> "CfgGradBuymenu" >> "trackingTag"), "text", ""] call CBA_fnc_getConfigEntry]];

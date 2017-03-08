@@ -8,7 +8,6 @@ class GRAD_lbm {
         class addFunds {};
         class addInteraction {};
         class checkCargoSpace {};
-        class clearTrackingData {};
         class getDescription {};
         class getDisplayName {};
         class getFunds {};
@@ -20,7 +19,6 @@ class GRAD_lbm {
         class loadBuymenu {};
         class rotateModel {};
         class setPermissionLevel {};
-        class trackPurchase {};
     };
 
     class buy {
@@ -40,18 +38,16 @@ class GRAD_lbm {
 
     class init {
         file = MODULES_DIRECTORY\grad-listBuymenu\functions\init;
-        class initClient {
-            postInit = 1;
-        };
-        class initStocks {
-            postInit = 1;
-        };
-        class initTracking {
-            postInit = 1;
-        };
-        class initVehicles {
-            postInit = 1;
-        };
+        class initClient {postInit = 1;};
+        class initStocks {postInit = 1;};
+        class initTracking {postInit = 1;};
+        class initVehicles {postInit = 1;};
+    };
+
+    class tracking {
+        file = MODULES_DIRECTORY\grad-listBuymenu\functions\tracking;
+        class clearTrackingData {};
+        class trackPurchase {};
     };
 
     class update {
