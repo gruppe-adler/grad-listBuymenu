@@ -10,11 +10,15 @@ class GRAD_lbm_tracking {
         class createMain {};
         class createSidebar {};
         class fillEditBox {};
+        class getMax {};
         class getTrackingTag {};
+        class initTracking {postInit = 1;};
         class onTrackingTagKeydown {};
         class openDialog {};
         class receiveData {};
         class requestData {};
+        class trackHashCleanup {};
+        class trackHashUpdate {};
         class trackPurchase {};
         class updateBuyablesDropdown {};
         class updateCategoryDropdown {};
@@ -61,7 +65,6 @@ class GRAD_lbm {
         file = MODULES_DIRECTORY\grad-listBuymenu\functions\init;
         class initClient {postInit = 1;};
         class initStocks {postInit = 1;};
-        class initTracking {postInit = 1;};
         class initVehicles {postInit = 1;};
     };
 

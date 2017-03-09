@@ -23,6 +23,11 @@ _topbar ctrlSetPosition [safezoneX,safezoneY,safezoneW,TOPBAR_H];
 _topbar ctrlSetText "GRAD LISTBUYMENU TRACKING";
 _topbar ctrlCommit 0;
 
+private _topbarDivider = _display ctrlCreate ["RscBackground",-1];
+_topbarDivider ctrlSetBackgroundColor TOPBAR_DIVIDER_COLOR;
+_topbarDivider ctrlSetPosition [safezoneX,safezoneY+TOPBAR_H,safezoneW,TOPBAR_DIVIDER_H];
+_topbarDivider ctrlCommit 0;
+
 private _closeButton = _display ctrlCreate ["RscButtonSmall",-1];
 _closeButton ctrlSetText "X";
 _closeButton ctrlSetPosition [safezoneX + safezoneW - 1.1*CLOSEBUTTON_W,safezoneY + CENTER(TOPBAR_H,CLOSEBUTTON_H),CLOSEBUTTON_W,CLOSEBUTTON_H];

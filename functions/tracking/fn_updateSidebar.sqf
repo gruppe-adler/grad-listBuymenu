@@ -8,6 +8,4 @@ params ["_data","_display","_inputText","_editBox"];
 
 if (isNull _display) exitWith {};
 
-
-
 [_data,_display] call GRAD_lbm_tracking_fnc_updateBuyablesDropdown;

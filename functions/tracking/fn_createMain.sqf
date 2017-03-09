@@ -7,14 +7,14 @@
 
 params ["_display"];
 
+private _mainBG = _display ctrlCreate ["RscBackground",MAIN_BG_IDC];
+_mainBG ctrlSetPosition [MAIN_BG_X,MAIN_BG_Y,MAIN_BG_W,MAIN_BG_H];
+_mainBG ctrlSetBackgroundColor MAIN_BGCOLOR;
+_mainBG ctrlCommit 0;
+
 private _mainGroup = _display ctrlCreate ["RscControlsGroupNoHScrollbars",MAIN_IDC];
 _mainGroup ctrlSetPosition [MAIN_X,MAIN_Y,MAIN_W,MAIN_H];
 _mainGroup ctrlCommit 0;
-
-private _mainBG = _display ctrlCreate ["RscBackground",-1,_mainGroup];
-_mainBG ctrlSetPosition [0,0,MAIN_W,MAIN_H];
-_mainBG ctrlSetBackgroundColor MAIN_BGCOLOR;
-_mainBG ctrlCommit 0;
 
 private _mainCenterText = _display ctrlCreate ["RscTextNoShadow",MAIN_CENTERTEXT_IDC,_mainGroup];
 _mainCenterText ctrlSetText "";

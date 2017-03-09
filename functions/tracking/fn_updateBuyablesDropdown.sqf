@@ -12,6 +12,8 @@ private _buyablesDropdown = _display displayCtrl DROPDOWN_BUYABLES_IDC;
 lbClear _buyablesDropdown;
 if !([_data] call CBA_fnc_isHash) exitWith {[_buyablesDropdown,-1] call grad_lbm_tracking_fnc_updateCategoryDropdown};
 
+/*_dropdownIndex = _buyablesDropdown lbAdd "ALL";
+_buyablesDropdown lbSetData [_dropdownIndex,str _data];*/
 
 private _fnc_forEachSet = {
     _value params ["_displayName","_buyablesdata"];

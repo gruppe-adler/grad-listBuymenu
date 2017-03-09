@@ -28,21 +28,36 @@ _mainCenterText ctrlSetText "REQUESTING DATA FROM SERVER...";
 _mainCenterText ctrlSetTextColor TAGTEXTCOLOR_SUCCESS;
 
 
-[{missionNamespace getVariable [_this select 0,false]},{
+private _fnc_onReceive = {
     params ["_didReceiveVarName","_inputText","_display","_dataVarName","_editBox","_mainCenterText"];
 
     missionNamespace setVariable [_didReceiveVarName,nil];
     _data = missionNamespace getVariable [_dataVarName,[]];
 
     if !([_data] call CBA_fnc_isHash) then {
-        _mainCenterText ctrlSetText (format ["NO DATA FOR %1",toUpper _inputText]);
+        _mainCenterText ctrlSetText (format ["NO DATA FOR '%1'",_inputText]);
         _mainCenterText ctrlSetTextColor TAGTEXTCOLOR_FAILURE;
         _editBox ctrlSetTextColor TAGTEXTCOLOR_FAILURE;
+
+        [_mainCenterText,-1] call grad_lbm_tracking_fnc_updateMain;
     } else {
         _mainCenterText ctrlSetText "";
         _editBox ctrlSetTextColor TAGTEXTCOLOR_SUCCESS;
     };
 
     [_data,_display,_inputText,_editBox] call grad_lbm_tracking_fnc_updateSidebar;
+};
 
-},[_didReceiveVarName,_inputText,_display,_dataVarName,_editBox,_mainCenterText],5,{ERROR_1("Data for tag %1 not received within 5 seconds.",_this select 0)}] call CBA_fnc_waitUntilAndExecute;
+private _fnc_onTimeout = {
+    params ["_didReceiveVarName","_inputText","_display","_dataVarName","_editBox","_mainCenterText"];
+
+    _mainCenterText ctrlSetText "ERROR: REQUEST TIMEOUT";
+    _mainCenterText ctrlSetTextColor TAGTEXTCOLOR_FAILURE;
+    _editBox ctrlSetTextColor TAGTEXTCOLOR_FAILURE;
+
+    [_mainCenterText,-1] call grad_lbm_tracking_fnc_updateMain;
+
+    ERROR_1("Data for tag %1 not received within 5 seconds.",_this select 0);
+};
+
+[{missionNamespace getVariable [_this select 0,false]},_fnc_onReceive,[_didReceiveVarName,_inputText,_display,_dataVarName,_editBox,_mainCenterText],5,_fnc_onTimeout] call CBA_fnc_waitUntilAndExecute;

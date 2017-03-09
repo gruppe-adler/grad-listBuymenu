@@ -13,7 +13,11 @@ lbClear _categoryDropdown;
 
 if (_curSelIndex < 0) exitWith {};
 
-private _selData = call compile (_buyablesDropdown lbData _curSelIndex);
+private _selData = _buyablesDropdown lbData _curSelIndex;
+private _selHash = call compile _selData;
+
+/*_dropdownIndex = _categoryDropdown lbAdd "ALL";
+_categoryDropdown lbSetData [_dropdownIndex,_selData];*/
 
 private _fnc_forEachSet = {
     _value params ["_displayName","_categoryData"];
@@ -21,5 +25,5 @@ private _fnc_forEachSet = {
     _dropdownIndex = _categoryDropdown lbAdd _displayName;
     _categoryDropdown lbSetData [_dropdownIndex, str _categoryData];
 };
-[_selData,_fnc_forEachSet] call CBA_fnc_hashEachPair;
+[_selHash,_fnc_forEachSet] call CBA_fnc_hashEachPair;
 if (lbSize _categoryDropdown > 0) then {_categoryDropdown lbSetCursel 0};
