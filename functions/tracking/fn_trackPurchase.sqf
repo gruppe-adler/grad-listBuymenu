@@ -11,9 +11,10 @@
 */
 
 #define PREFIX GRAD
-#define COMPONENT lbm
-#include "..\..\defines_tracking.hpp"
+#define COMPONENT lbm_tracking
 #include "\x\cba\addons\main\script_macros_mission.hpp"
+
+#include "..\..\defines_tracking.hpp"
 
 params ["_baseConfigName","_categoryConfigName","_itemConfigName"];
 

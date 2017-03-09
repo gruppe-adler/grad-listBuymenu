@@ -6,18 +6,16 @@ if (!isServer) exitWith {};
 
 private ["_trackHash"];
 
-private _tag = [(missionConfigFile >> "CfgGradBuymenu" >> "trackingTag"), "text", ""] call CBA_fnc_getConfigEntry;
-if (_tag == "") exitWith {INFO("Not tracking purchases.")};
-
-INFO_1("Tracking purchases under tag %1.",_tag);
-
-_tag = [_tag] call BIS_fnc_filterString;
-grad_lbm_trackingTag = format ["mcd_lbm_tracking_%1",_tag];
+grad_lbm_trackingTag = [] call grad_lbm_tracking_fnc_getTrackingTag;
+if (grad_lbm_trackingTag == "") exitWith {INFO("Not tracking purchases.")};
+INFO("Tracking purchases.");
 
 if (isNil {profileNamespace getVariable grad_lbm_trackingTag}) exitWith {
-    INFO_1("Creating tracking data for tag %1.",_tag);
+    INFO_1("Creating tracking data for tag %1.",grad_lbm_trackingTag);
     _trackHash = [[],false] call CBA_fnc_hashCreate;
     profileNamespace setVariable [grad_lbm_trackingTag,_trackHash];
 
     _trackHash
 };
+
+nil

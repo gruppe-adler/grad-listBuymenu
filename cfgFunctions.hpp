@@ -2,6 +2,27 @@
     #define MODULES_DIRECTORY modules
 #endif
 
+class GRAD_lbm_tracking {
+    class tracking {
+        file = MODULES_DIRECTORY\grad-listBuymenu\functions\tracking;
+        class clearTrackingData {};
+        class createBackground {};
+        class createMain {};
+        class createSidebar {};
+        class fillEditBox {};
+        class getTrackingTag {};
+        class onTrackingTagKeydown {};
+        class openDialog {};
+        class receiveData {};
+        class requestData {};
+        class trackPurchase {};
+        class updateBuyablesDropdown {};
+        class updateCategoryDropdown {};
+        class updateMain {};
+        class updateSidebar {};
+    };
+};
+
 class GRAD_lbm {
     class common {
         file = MODULES_DIRECTORY\grad-listBuymenu\functions\common;
@@ -42,12 +63,6 @@ class GRAD_lbm {
         class initStocks {postInit = 1;};
         class initTracking {postInit = 1;};
         class initVehicles {postInit = 1;};
-    };
-
-    class tracking {
-        file = MODULES_DIRECTORY\grad-listBuymenu\functions\tracking;
-        class clearTrackingData {};
-        class trackPurchase {};
     };
 
     class update {
