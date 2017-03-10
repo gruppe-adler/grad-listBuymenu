@@ -8,9 +8,9 @@
 params [["_tag",[(missionConfigFile >> "CfgGradBuymenu" >> "trackingTag"), "text", ""] call CBA_fnc_getConfigEntry]];
 
 if (!isServer) exitWith {};
-if (_tag == "") exitWith {false};
-_tag = [_tag] call BIS_fnc_filterString;
-_tag = format ["mcd_lbm_tracking_%1",_tag];
+private _trackingTag = [_tag] call grad_lbm_tracking_fnc_getTrackingTag;
+if (_trackingTag == "") exitWith {false};
+
 
 if (isNil {profileNamespace getVariable _tag}) exitWith {ERROR_1("Tracking data for tag %1 not found. Can't clear.",_tag); false};
 

@@ -4,6 +4,8 @@
 
 params ["_hash"];
 
+if (([(missionConfigFile >> "CfgGradBuymenu" >> "trackingCleanup"), "number", 1] call CBA_fnc_getConfigEntry) == 0) exitWith {}; 
+
 private _allBaseSets = "true" configClasses (missionConfigFile >> "CfgGradBuymenu");
 private _allBaseSetNames = _allBaseSets apply {configName _x};
 private _deleteBaseKeys = [];

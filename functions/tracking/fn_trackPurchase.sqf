@@ -2,9 +2,9 @@
 *
 *   Hash structure:
 *   Trackinghash [HASH - Basesets]
-*       Basehash [BaseDisplayName,[HASH - Categories]]
-*           Categoryhash [CategoryDisplayName,[HASH - Items]]
-*               Itemshash [ItemDisplayName,ItemAmount]
+*       Basedata [BaseDisplayName,[HASH - Categories]]
+*           Categorydata [CategoryDisplayName,[HASH - Items]]
+*               Itemsdata [ItemDisplayName,ItemAmount]
 *
 *   Returns:
 *   [ItemDisplayName,ItemAmount]
@@ -22,7 +22,7 @@ private _doTrack = [(missionConfigFile >> "CfgGradBuymenu" >>  "tracking"), "num
 _doTrack = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> "tracking"), "number", _doTrack] call CBA_fnc_getConfigEntry;
 _doTrack = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> "tracking"), "number", _doTrack] call CBA_fnc_getConfigEntry;
 _doTrack = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> _itemConfigName >> "tracking"), "number", _doTrack] call CBA_fnc_getConfigEntry;
-if (_doTrack != 1) exitWith {["",0]};
+if (_doTrack != 1 || !(missionNamespace getVariable ["grad_lbm_tracking_enabled",true])) exitWith {["",0]};
 
 private _trackHash = profileNamespace getVariable [grad_lbm_trackingTag,false];
 if (_trackHash isEqualType false) then {_trackHash = [] call grad_lbm_fnc_tracking_initTracking};

@@ -9,6 +9,8 @@ class GRAD_lbm_tracking {
         class createBackground {};
         class createMain {};
         class createSidebar {};
+        class deleteEntry {};
+        class enableTracking {};
         class fillEditBox {};
         class getMax {};
         class getTrackingTag {};
