@@ -23,7 +23,6 @@ class GRAD_lbm_tracking {
         class updateBuyablesDropdown {};
         class updateCategoryDropdown {};
         class updateMain {};
-        class updateSidebar {};
     };
 };
 

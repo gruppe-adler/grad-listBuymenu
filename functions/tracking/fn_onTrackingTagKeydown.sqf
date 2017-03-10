@@ -45,7 +45,7 @@ private _fnc_onReceive = {
         _editBox ctrlSetTextColor TAGTEXTCOLOR_SUCCESS;
     };
 
-    [_data,_display,_inputText,_editBox] call grad_lbm_tracking_fnc_updateSidebar;
+    [_data,_display] call grad_lbm_tracking_fnc_updateBuyablesDropdown;
 };
 
 private _fnc_onTimeout = {

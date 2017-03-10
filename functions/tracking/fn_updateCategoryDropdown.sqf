@@ -16,14 +16,45 @@ if (_curSelIndex < 0) exitWith {};
 private _selData = _buyablesDropdown lbData _curSelIndex;
 private _selHash = call compile _selData;
 
-/*_dropdownIndex = _categoryDropdown lbAdd "ALL";
-_categoryDropdown lbSetData [_dropdownIndex,_selData];*/
 
-private _fnc_forEachSet = {
-    _value params ["_displayName","_categoryData"];
-
-    _dropdownIndex = _categoryDropdown lbAdd _displayName;
-    _categoryDropdown lbSetData [_dropdownIndex, str _categoryData];
+private _selDataSets = if (_buyablesDropdown lbText _curSelIndex == "ALL") then {
+    _dataSets = [];
+    _fnc_forEachPair = {
+        _value params ["_baseDisplayName","_baseHash"];
+        _dataSets pushBack _baseHash;
+    };
+    [_selHash,_fnc_forEachPair] call CBA_fnc_hashEachPair;
+    _dataSets
+} else {
+    [_selHash]
 };
-[_selHash,_fnc_forEachSet] call CBA_fnc_hashEachPair;
-if (lbSize _categoryDropdown > 0) then {_categoryDropdown lbSetCursel 0};
+
+
+if ([_selHash] call CBA_fnc_hashSize > 0) then {
+    _dropdownIndex = _categoryDropdown lbAdd "ALL";
+    _allCategoryData = [];
+    {
+        _fnc_forEachSet = {
+            _value params ["_displayName","_categoryData"];
+            _allCategoryData pushBack _categoryData;
+        };
+        [_x,_fnc_forEachSet] call CBA_fnc_hashEachPair;
+
+        false
+    } count _selDataSets;
+    _categoryDropdown lbSetData [_dropdownIndex,str _allCategoryData];
+};
+
+
+{
+    _fnc_forEachSet = {
+        _value params ["_displayName","_categoryData"];
+
+        _dropdownIndex = _categoryDropdown lbAdd _displayName;
+        _categoryDropdown lbSetData [_dropdownIndex, str [_categoryData]];
+    };
+    [_x,_fnc_forEachSet] call CBA_fnc_hashEachPair;
+    if (lbSize _categoryDropdown > 0) then {_categoryDropdown lbSetCursel 0};
+
+    false
+} count _selDataSets;

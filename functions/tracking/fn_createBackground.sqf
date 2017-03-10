@@ -20,7 +20,7 @@ _sidebarDivider ctrlCommit 0;
 private _topbar = _display ctrlCreate ["RscText",-1];
 _topbar ctrlSetBackgroundColor [(profilenamespace getvariable ['GUI_BCG_RGB_R',0]),(profilenamespace getvariable ['GUI_BCG_RGB_G',0]),(profilenamespace getvariable ['GUI_BCG_RGB_B',0]),1];
 _topbar ctrlSetPosition [safezoneX,safezoneY,safezoneW,TOPBAR_H];
-_topbar ctrlSetText "GRAD LISTBUYMENU TRACKING";
+_topbar ctrlSetText "GRAD LISTBUYMENU STATISTICS";
 _topbar ctrlCommit 0;
 
 private _topbarDivider = _display ctrlCreate ["RscBackground",-1];

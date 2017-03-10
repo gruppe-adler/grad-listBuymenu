@@ -5,15 +5,16 @@
 #include "..\..\ui_toolkit.hpp"
 #include "..\..\defines_tracking.hpp"
 
+diag_log "UPDATE MAIN";
+
 params ["_categoryDropdown","_curSelIndex"];
 
 private _display = ctrlParent _categoryDropdown;
 private _data = if (_curSelIndex >= 0) then {call compile (_categoryDropdown lbData _curSelIndex)} else {[]};
-_data params ["",["_keys",[]],["_values",[]]];
-
+asdasd = _data;
+private _maxAmount = [_data] call grad_lbm_tracking_fnc_getMax;
 private _mainGroup = _display displayCtrl MAIN_IDC;
 private _mainBG = _display displayCtrl MAIN_BG_IDC;
-private _maxAmount = [_values] call grad_lbm_tracking_fnc_getMax;
 private _barIDC = BAR_STARTING_IDC;
 private _textIDC = BAR_TEXT_STARTING_IDC;
 private _linesIDC = MAIN_LINES_IDC;
@@ -43,33 +44,46 @@ while {!isNull (_display displayCtrl _numbersIDC)} do {
 
 
 //CREATE BARS ==================================================================
+private _previousAmount = 0;
+private _previousIndex = 0;
 {
-    _key = _x;
-    _value = _values select _forEachIndex;
-    _value params ["_amount","_displayName"];
+    _x params ["",["_keys",[]],["_values",[]]];
+    _previousAmount = _previousAmount + _previousIndex;
+    _categoryIndex = if (count _data == 1) then {(_curSelIndex-1) max 0} else {_forEachIndex};
+    {
+        _barColorRGBA = BARCOLORS_RGBA select (_categoryIndex mod (count BARCOLORS_RGBA));
+        _barColor = _barColorRGBA apply {_x/255};
 
-    _barY = BAR_STARTING_Y + BAR_DISTANCE_Y*_forEachIndex + BAR_H*_forEachIndex;
-    _barW = if (_amount > 0) then {BAR_MAX_W * (_amount/(_maxAmount max 1))} else {BAR_MAX_W * 0.01};
+        _key = _x;
+        _value = _values select _forEachIndex;
+        _value params ["_amount","_displayName"];
 
-    _bar = _display ctrlCreate ["RscBackground",BAR_STARTING_IDC + _forEachIndex,_mainGroup];
-    _bar ctrlSetPosition [BAR_X, _barY, _barW, BAR_H];
-    _bar ctrlSetBackgroundColor BARCOLOR_DEFAULT;
-    _bar ctrlSetTooltip format ["%1\n%2\nAmount: %3",_key,_displayName,_amount];
-    _bar ctrlCommit 0;
+        _barY = BAR_STARTING_Y + BAR_DISTANCE_Y*(_forEachIndex+_previousAmount) + BAR_H*(_forEachIndex+_previousAmount);
+        _barW = if (_amount > 0) then {BAR_MAX_W * (_amount/(_maxAmount max 1))} else {BAR_MAX_W * 0.01};
 
-    _text = _display ctrlCreate ["RscBackground",BAR_TEXT_STARTING_IDC + _forEachIndex,_mainGroup];
-    _text ctrlSetPosition [BAR_TEXT_X, _barY, BAR_TEXT_W, BAR_H];
-    _text ctrlSetText _displayName;
-    _text ctrlSetBackgroundColor [0,0,0,0];
-    _text ctrlSetFontHeight (0.04 * TEXT_SCALE);
-    _text ctrlSetTextColor [0,0,0,1];
-    _text ctrlCommit 0;
-} forEach _keys;
+        _bar = _display ctrlCreate ["RscBackground",BAR_STARTING_IDC + (_forEachIndex+_previousAmount),_mainGroup];
+        _bar ctrlSetPosition [BAR_X, _barY, _barW, BAR_H];
+        _bar ctrlSetBackgroundColor _barColor;
+        _bar ctrlSetTooltip format ["%1\n%2\nAmount: %3",_key,_displayName,_amount];
+        _bar ctrlCommit 0;
+
+        _text = _display ctrlCreate ["RscBackground",BAR_TEXT_STARTING_IDC + (_forEachIndex+_previousAmount),_mainGroup];
+        _text ctrlSetPosition [BAR_TEXT_X, _barY, BAR_TEXT_W, BAR_H];
+        _text ctrlSetText _displayName;
+        _text ctrlSetBackgroundColor [0,0,0,0];
+        _text ctrlSetFontHeight (0.04 * TEXT_SCALE);
+        _text ctrlSetTextColor [0,0,0,1];
+        _text ctrlCommit 0;
+
+        _previousIndex = _forEachIndex;
+    } forEach _keys;
+    _previousIndex = _previousIndex + 1;
+
+    false
+} forEach _data;
 
 
 //CREATE DIVISIONS =============================================================
-
-
 private _maxNumberOfDivisions = 14;
 private _numberOfDivisions = 4;
 private _minMod = 100;
