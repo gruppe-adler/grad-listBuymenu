@@ -5,8 +5,6 @@
 #include "..\..\ui_toolkit.hpp"
 #include "..\..\defines_tracking.hpp"
 
-diag_log "UPDATE MAIN";
-
 params ["_categoryDropdown","_curSelIndex"];
 
 private _display = ctrlParent _categoryDropdown;

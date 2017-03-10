@@ -18,8 +18,6 @@
 
 params ["_baseConfigName","_categoryConfigName","_itemConfigName",["_purchaseAmount",1],["_save",true]];
 
-diag_log "trackPurchase";
-
 private _doTrack = [(missionConfigFile >> "CfgGradBuymenu" >>  "tracking"), "number", 0] call CBA_fnc_getConfigEntry;
 _doTrack = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> "tracking"), "number", _doTrack] call CBA_fnc_getConfigEntry;
 _doTrack = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> "tracking"), "number", _doTrack] call CBA_fnc_getConfigEntry;
