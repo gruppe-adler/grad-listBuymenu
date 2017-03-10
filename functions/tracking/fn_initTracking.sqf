@@ -2,6 +2,12 @@
 #define COMPONENT lbm_tracking
 #include "\x\cba\addons\main\script_macros_mission.hpp"
 
+["lbmstats", {
+    [] call grad_lbm_tracking_fnc_openDialog;
+}, "adminLogged"] call CBA_fnc_registerChatCommand;
+grad_lbm_tracking_lastRequest = "";
+grad_lbm_tracking_lastRequestTime = 0;
+
 if (!isServer) exitWith {};
 
 private ["_trackHash"];
@@ -18,10 +24,6 @@ if (isNil {profileNamespace getVariable grad_lbm_trackingTag}) then {
 private _trackHash = profileNamespace getVariable grad_lbm_trackingTag;
 [_trackHash] call grad_lbm_tracking_fnc_trackHashCleanup;
 [_trackHash] call grad_lbm_tracking_fnc_trackHashUpdate;
-
-["lbmstats", {
-    [] call grad_lbm_tracking_fnc_openDialog;
-}, "adminLogged"] call CBA_fnc_registerChatCommand;
 
 INFO("Tracking initialized.");
 

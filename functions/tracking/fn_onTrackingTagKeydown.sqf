@@ -15,6 +15,10 @@ private _inputText = [ctrlText _editBox] call BIS_fnc_filterString;
 
 
 if (_inputText == "") exitWith {};
+if (CBA_missionTime - grad_lbm_tracking_lastRequestTime < 5 && {grad_lbm_tracking_lastRequest == _inputText}) exitWith {};
+
+grad_lbm_tracking_lastRequest = _inputText;
+grad_lbm_tracking_lastRequestTime = CBA_missionTime;
 
 
 private _didReceiveVarName = format ["%1_received",_inputText];
