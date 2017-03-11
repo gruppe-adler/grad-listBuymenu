@@ -4,7 +4,7 @@ class grad_lbm_RscBackground {
 	style = ST_HUD_BACKGROUND;
 	text = "";
 	colorText[] = {0, 0, 0, 0};
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	sizeEx = 0.04 * TEXT_SCALE;
 	shadow = 0;
 	colorBackground[] = {0, 0, 0, 0.6};
@@ -17,7 +17,7 @@ class grad_lbm_RscText {
 	style = ST_LEFT;
 	colorBackground[] = { 1 , 1 , 1 , 0 };
 	colorText[] = { 1 , 1 , 1 , 1 };
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	sizeEx = 0.025;
 	h = 0.25;
 	text = "";
@@ -31,7 +31,7 @@ class grad_lbm_RscStructuredTextLeft {
 	colorText[] = { 1 , 1 , 1 , 1 };
 	colorBackground[] = {0,0,0,0.4};
 	class Attributes {
-		font = "PuristaMedium";
+		font = "RobotoCondensed";
 		//color = "#e0d8a6";
 		align = "left";
 		shadow = 0;
@@ -46,7 +46,7 @@ class grad_lbm_RscPicture {
 	type = CT_STATIC;
 	style = 48 + 2048;
 	sizeEx = 0.023;
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	text = "";
 	colorBackground[] = {};
 	colorText[] = {};
@@ -84,7 +84,7 @@ class grad_lbm_RscButton {
 	animTextureFocused = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\focus_ca.paa";
 	animTexturePressed = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\down_ca.paa";
 	shadow = 0;
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	sizeEx = 0.04;
 	offsetX = 0.003;
 	offsetY = 0.003;
@@ -109,7 +109,7 @@ class grad_lbm_RscCombo {
 	type = CT_COMBO;
 	style = ST_CENTER;
 	sizeEx = 0.042;
-	font = puristaMedium;
+	font = "RobotoCondensed";
 	rowHeight = 0.04;
 	wholeHeight = 0.48;
 	maxHistoryDelay = 0;
@@ -169,7 +169,7 @@ class grad_lbm_RscListBox
 	tooltipColorText[] = {1, 1, 1, 1};
 	tooltipColorBox[] = {1, 1, 1, 1};
 	tooltipColorShade[] = {0, 0, 0, 0.65};
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	sizeEx = 0.035;
 	shadow = 0;
 	colorShadow[] = {0, 0, 0, 0.5};
@@ -202,7 +202,7 @@ class grad_lbm_RscListNBox
 	colorSelectBackground2[] = {1, 1, 1, 0.5};
 
 	sizeEx = 0.035 * TEXT_SCALE;
-	font = "PuristaMedium";
+	font = "RobotoCondensed";
 	shadow = 0;
 	colorText[] = {1,1,1,1};
 	colorDisabled[] = {1, 1, 1, 0.25};
