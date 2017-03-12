@@ -14,7 +14,7 @@ private _allBaseSets = "true" configClasses (missionConfigFile >> "CfgGradBuymen
         {
             _itemConfigName = configName _x;
             ([_baseConfigName,_categoryConfigName,_itemConfigName,0,false] call grad_lbm_tracking_fnc_trackPurchase) params ["_itemDisplayName","_itemAmount"];
-            if (_itemAmount == 0 && _itemDisplayName != "") then {INFO_3("New item: %1 >> %2 >> %3 added to trackhash.",_baseConfigName,_categoryConfigName,_itemConfigName)};
+            if (_itemAmount == 0 && _itemDisplayName != "") then {INFO_3("New item: %1 >> %2 >> %3.",_baseConfigName,_categoryConfigName,_itemConfigName)};
             false
         } count _allItems;
         false

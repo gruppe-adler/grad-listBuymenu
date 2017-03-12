@@ -17,8 +17,9 @@ _selIndex = lnbCurSelRow _listCtrl;
 
 //set description
 _stock = [_baseConfigName, _categoryConfigName, _itemConfigName] call grad_lbm_fnc_getStock;
+_categoryDescription = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> "description"),"text",""] call CBA_fnc_getConfigEntry;
 _inStockText = if (_stock > 0) then {format ["IN STOCK: %1<br/><br/>", _stock]} else {"<t color='#FF0000'>OUT OF STOCK</t><br/><br/>"};
-_descCtrl ctrlSetStructuredText parseText (_inStockText + _description);
+_descCtrl ctrlSetStructuredText parseText (_inStockText + _categoryDescription + _description);
 
 //disable buy button if out of stock
 [_baseConfigName, _categoryConfigName, _itemConfigName, _price] call grad_lbm_fnc_updateBuyButton;
