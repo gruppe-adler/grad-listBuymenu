@@ -34,9 +34,11 @@ class GRAD_lbm {
         class addFunds {};
         class addInteraction {};
         class checkCargoSpace {};
+        class getCurrentFunds {};
         class getDescription {};
         class getDisplayName {};
         class getFunds {};
+        class getItemPermissionLevel {};
         class getModuleRoot {};
         class getPermissionLevel {};
         class getPicturePath {};

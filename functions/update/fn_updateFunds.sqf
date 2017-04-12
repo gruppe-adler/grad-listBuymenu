@@ -8,5 +8,7 @@ disableSerialization;
 _dialog = findDisplay grad_lbm_DIALOG;
 if (isNull _dialog) exitWith {};
 
+_funds = [] call grad_lbm_fnc_getCurrentFunds;
+
 _myfundsCtrl = _dialog displayCtrl grad_lbm_MYFUNDS;
-_myfundsCtrl ctrlSetText format ["CREDITS: %1",(player getVariable ["grad_lbm_myFunds", 0])];
+_myfundsCtrl ctrlSetText format ["CREDITS: %1",_funds];

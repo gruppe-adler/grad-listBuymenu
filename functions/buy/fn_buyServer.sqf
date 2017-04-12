@@ -3,7 +3,23 @@
 *   remote executed by client
 */
 
-params ["_baseConfigName", "_categoryConfigName", "_itemConfigName", "_buyer", "_price", "_vehiclespawn"];
+params ["_baseConfigName", "_categoryConfigName", "_itemConfigName", "_buyer", "_price", "_vehiclespawn","_account"];
+
+//detract from account
+private _notEnoughMoney = if (typeName _account == "SIDE") then {
+    if ([_account] call grad_lbm_fnc_getFunds < _price) then {
+        "Teamaccount did not have enough money. Purchase canceled." remoteExec ["systemChat",_buyer,false];
+        true
+    } else {
+        [_account,-_price] call grad_lbm_fnc_addFunds;
+        [] remoteExec ["grad_lbm_fnc_updateFunds",_buyer,false];
+        false
+    };
+} else {
+    false
+};
+diag_log [_account,_notEnoughMoney,_price];
+if (_notEnoughMoney) exitWith {};
 
 //check if in stock
 _stock = [_baseConfigName, _categoryConfigName, _itemConfigName] call grad_lbm_fnc_getStock;

@@ -10,14 +10,14 @@ _dialog = findDisplay grad_lbm_DIALOG;
 _buyCtrl = _dialog displayCtrl grad_lbm_BUYBUTTON;
 
 //no permission
-_permissionLevel = [_baseConfigName,_categoryConfigName,_itemConfigName] call grad_lbm_fnc_getPermissionLevel;
+_permissionLevel = [_baseConfigName,_categoryConfigName,_itemConfigName] call grad_lbm_fnc_getItemPermissionLevel;
 if (_permissionLevel > (player getVariable ["grad_lbm_permissionLevel",0])) exitWith {
     _buyCtrl ctrlEnable false;
     _buyCtrl ctrlSetText "NO PERMISSION";
 };
 
 //not enough money
-if ((player getVariable ["grad_lbm_myFunds", 0]) < _price) exitWith {
+if (([] call grad_lbm_fnc_getCurrentFunds) < _price) exitWith {
     _buyCtrl ctrlEnable false;
     _buyCtrl ctrlSetText "NOT ENOUGH CREDITS";
 };
