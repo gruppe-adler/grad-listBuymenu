@@ -5,8 +5,6 @@
 #include "..\..\dialog\ui_toolkit.hpp"
 #include "..\..\dialog\defines.hpp"
 
-if (!isServer) exitWith {};
-
 GRAD_LBM_VEHICLESIZES = [] call CBA_fnc_hashCreate;
 
 //find all vehicle types
@@ -45,5 +43,3 @@ _aspectRatio = grad_lbm_Column_W/grad_lbm_Picture_H;
 
     deleteVehicle _vehicle;
 } forEach _types;
-
-publicVariable "GRAD_LBM_VEHICLESIZES";
