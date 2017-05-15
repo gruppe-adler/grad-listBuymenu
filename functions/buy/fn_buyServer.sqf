@@ -18,7 +18,7 @@ private _notEnoughMoney = if (typeName _account == "SIDE") then {
 } else {
     false
 };
-diag_log [_account,_notEnoughMoney,_price];
+
 if (_notEnoughMoney) exitWith {};
 
 //check if in stock
