@@ -46,6 +46,7 @@ class GRAD_lbm {
         class isVehicle {};
         class loadBuymenu {};
         class rotateModel {};
+        class setFunds {};
         class setPermissionLevel {};
     };
 
