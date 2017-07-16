@@ -15,7 +15,7 @@ if (_vehiclespawn isEqualType objNull) then {
 
 //find spawn position
 _spawnPosition = [];
-for "_i" from 1 to 20 do {
+for "_i" from 1 to 50 do {
     _spawnPosition = _vehiclespawn findEmptyPosition [_minDistance, 15 + 5*_i, _itemConfigName];
     if (str _spawnPosition != "[]") exitWith {};
 };
