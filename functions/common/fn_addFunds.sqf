@@ -5,6 +5,7 @@ if (typeName _account == "OBJECT") then {
         [_account,_funds] remoteExec ["grad_lbm_fnc_addFunds",_account,false];
     } else {
         _account setVariable ["grad_lbm_myFunds", ((_account getVariable ["grad_lbm_myFunds",0]) + _funds) max 0, true];
+        [] call grad_lbm_fnc_updateFunds;
     };
 } else {
     if (isServer) then {
@@ -14,6 +15,7 @@ if (typeName _account == "OBJECT") then {
             case (INDEPENDENT): {missionNamespace setVariable ["grad_lbm_teamFunds_INDEPENDENT",(missionNamespace getVariable ["grad_lbm_teamFunds_INDEPENDENT",0]) + _funds,true]};
             case (CIVILIAN): {missionNamespace setVariable ["grad_lbm_teamFunds_CIVILIAN",(missionNamespace getVariable ["grad_lbm_teamFunds_CIVILIAN",0]) + _funds,true]};
         };
+        [] remoteExec ["grad_lbm_fnc_updateFunds",0,false];
     } else {
         [_account,_funds] remoteExec ["grad_lbm_fnc_addFunds",2,false];
     };

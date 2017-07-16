@@ -2,10 +2,10 @@
 *
 */
 
-params ["_target", "_price", "_message"];
+params ["_target", "_account", "_price", "_message"];
 if (!hasInterface) exitWith {};
 if (player != _target) exitWith {};
 
 systemChat _message;
-player setVariable ["grad_lbm_myFunds", (player getVariable ["grad_lbm_myFunds", 0]) + _price, true];
-[] call grad_lbm_fnc_updateFunds;
+
+[_account,_price] call grad_lbm_fnc_addFunds;

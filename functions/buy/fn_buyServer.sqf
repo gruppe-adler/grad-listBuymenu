@@ -12,7 +12,6 @@ private _notEnoughMoney = if (typeName _account == "SIDE") then {
         true
     } else {
         [_account,-_price] call grad_lbm_fnc_addFunds;
-        [] remoteExec ["grad_lbm_fnc_updateFunds",_buyer,false];
         false
     };
 } else {
@@ -40,26 +39,26 @@ _type = toUpper ([(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _
 if (_type == "") then {_type = toUpper ([(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> "kindOf"), "text", ""] call CBA_fnc_getConfigEntry)};
 switch (_type) do {
     case ("WEAPONS"): {
-        [_buyer,_price,_code,_baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_buyWeapon",0,false];
+        [_buyer,_account,_price,_code,_baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_buyWeapon",0,false];
         [[_buyer,_itemConfigName],_code] call grad_lbm_fnc_callCodeServer;
     };
 
     case ("ITEMS"): {
-        [_buyer,_price,_code,_baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_buyItem",0,false];
+        [_buyer,_account,_price,_code,_baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_buyItem",0,false];
         [[_buyer,_itemConfigName],_code] call grad_lbm_fnc_callCodeServer;
     };
 
     case ("WEARABLES"): {
-        [_buyer,_price,_code,_baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_buyWearable",0,false];
+        [_buyer,_account,_price,_code,_baseConfigName, _categoryConfigName, _itemConfigName] remoteExec ["grad_lbm_fnc_buyWearable",0,false];
         [[_buyer,_itemConfigName],_code] call grad_lbm_fnc_callCodeServer;
     };
 
     case ("VEHICLES"): {
-        [_buyer,_price,_code,_baseConfigName,_categoryConfigName,_itemConfigName,_vehiclespawn] call grad_lbm_fnc_buyVehicle;
+        [_buyer,_account,_price,_code,_baseConfigName,_categoryConfigName,_itemConfigName,_vehiclespawn] call grad_lbm_fnc_buyVehicle;
     };
 
     case ("UNITS"): {
-        [_buyer,_price,_code,_baseConfigName,_categoryConfigName,_itemConfigName,_vehiclespawn] call grad_lbm_fnc_buyUnit;
+        [_buyer,_account,_price,_code,_baseConfigName,_categoryConfigName,_itemConfigName,_vehiclespawn] call grad_lbm_fnc_buyUnit;
     };
 
     case ("OTHER"): {
@@ -68,7 +67,7 @@ switch (_type) do {
     };
 
     default {
-        [_buyer, _price, "Unknown item type. You got your money back."] remoteExec ["grad_lbm_fnc_reimburse",0,false];
+        [_buyer,_account,_price,"Unknown item type. You got your money back."] remoteExec ["grad_lbm_fnc_reimburse",0,false];
     };
 };
 
