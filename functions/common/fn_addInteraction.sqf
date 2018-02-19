@@ -16,7 +16,7 @@ _action = [_actionName,_actionDescription,_icon,{
     _args = _this select 2;
     _args params ["_object","_cargospace","_vehiclespawn","_baseConfigName","_shopName","_account"];
 
-    if (isNull _account) then {_account = player};
+    if (_account isEqualType objNull && {isNull _account}) then {_account = player};
     [_object,_cargospace,_vehiclespawn,_baseConfigName,_shopName,_account] call grad_lbm_fnc_loadBuymenu;
 
 },_condition,{},[_object,_cargospace,_vehiclespawn,_baseConfigName,_shopName,_account],_position,_distance] call ace_interact_menu_fnc_createAction;
