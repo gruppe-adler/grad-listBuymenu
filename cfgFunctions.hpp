@@ -33,6 +33,7 @@ class GRAD_lbm {
         file = MODULES_DIRECTORY\grad-listBuymenu\functions\common;
         class addFunds {};
         class addInteraction {};
+        class addStock {};
         class checkCargoSpace {};
         class getCurrentFunds {};
         class getDescription {};
@@ -48,6 +49,7 @@ class GRAD_lbm {
         class rotateModel {};
         class setFunds {};
         class setPermissionLevel {};
+        class setStock {};
     };
 
     class buy {
