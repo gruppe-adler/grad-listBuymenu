@@ -27,7 +27,7 @@ if (str _spawnPosition == "[]") exitWith {[_buyer,_account,_price,"No vehicle sp
 _vehicle = _itemConfigName createVehicle _spawnPosition;
 
 //bis vehicle init
-private _init = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> "vehicleInit"), "text", "[]"] call CBA_fnc_getConfigEntry;
+private _init = [(missionConfigFile >> "CfgGradBuymenu" >> _baseConfigName >> _categoryConfigName >> "vehicleInit"), "text", "[[],[]]"] call CBA_fnc_getConfigEntry;
 call compile _init params ["_initTexture", "_initAnimationsource"];
 [_vehicle, _initTexture, _initAnimationsource] call BIS_fnc_initVehicle;
 
