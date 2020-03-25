@@ -23,4 +23,4 @@ _handle = [_function, 0, [_vehicle, _displayName]] call CBA_fnc_addPerFrameHandl
 [{
     params ["_handle"];
     [_handle] call CBA_fnc_removePerFrameHandler;
-}, _handle, 15] call CBA_fnc_waitAndExecute;
+}, _handle, 30] call CBA_fnc_waitAndExecute;
