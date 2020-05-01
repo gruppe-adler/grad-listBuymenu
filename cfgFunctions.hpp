@@ -69,6 +69,7 @@ class GRAD_lbm {
 
     class init {
         file = MODULES_DIRECTORY\grad-listBuymenu\functions\init;
+        class addPlayerEHs {};
         class initClient {postInit = 1;};
         class initStocks {postInit = 1;};
         class initVehicles {postInit = 1;};

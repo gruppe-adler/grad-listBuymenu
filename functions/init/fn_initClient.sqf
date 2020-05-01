@@ -5,6 +5,9 @@
 
 if (!hasInterface) exitWith {};
 
+grad_lbm_playersLoseMoneyOnDeath = ([missionConfigFile >> "CfgGradBuymenu","playersLoseMoneyOnDeath", 1] call BIS_fnc_returnConfigEntry) == 1;
+[] call grad_lbm_fnc_addPlayerEHs;
+
 //PVEH on item stock update
 if (!isServer) then {
     "GRAD_LBM_ITEMSTOCKS" addPublicVariableEventHandler {[] call grad_lbm_fnc_updateItemData};
